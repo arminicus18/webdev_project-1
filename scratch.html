@@ -1,0 +1,394 @@
+<!-- navbar -->
+<header class="sticky-top">
+    <!-- The navbar needs navbar-expand-lg removed to use the offcanvas on all sizes, or navbar-expand-lg
+         will automatically open the menu on LG. We will add a utility class to control the toggler display. -->
+    <nav class="navbar navbar-custom navbar-dark">
+        <!-- Using container-fluid here, which is common with offcanvas examples, but keeping your original custom classes -->
+        <div class="container-fluid container-lg container-md"> 
+            
+            <!-- Logo - Removed the unnecessary <div class="row"> -->
+            <a class="navbar-brand navbar-brand-text" href="#">
+                <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+            </a>
+            
+            <!-- 1. DESKTOP NAVIGATION CONTENT (Visible on LG screen and up) -->
+            <!-- This section is for the desktop layout, displaying icon links and the search bar -->
+            <div class="d-none d-lg-flex flex-grow-1 justify-content-end align-items-center" id="navbarNavDesktop">
+                
+                <!-- Main Navigation Links (Icon-only for Desktop) -->
+                <!-- Use the icons you had originally, without text for the clean desktop look -->
+                <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text flex-row">
+                    <li class="nav-item me-4">
+                        <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                            <i class="fa-regular fa-house fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                            <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                            <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                            <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Search Form (Right-aligned for Desktop) -->
+                <form class="d-flex ms-auto" role="search">
+                    <input class="form-control me-2 navbar-search" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                </form>
+            </div>
+
+
+            <!-- 2. TOGGLER BUTTON (Only visible on MD/SM screens, hidden on LG) -->
+            <!-- Updated attributes to match the Offcanvas structure -->
+            <button class="navbar-toggler d-lg-none" type="button" 
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            
+            <!-- 3. OFFCANVAS MENU (for Mobile, Hidden on LG screen) -->
+            <!-- Used custom classes: navbar-dark (text color) and navbar-custom (background color) -->
+            <div class="offcanvas offcanvas-end navbar-dark navbar-custom" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">MountPinoy Menu</h5>
+                    <!-- Use a white close button since the background is dark custom color -->
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                    <!-- Navigation Links inside Offcanvas (use text + icon for clarity on mobile) -->
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                                <i class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                                <i class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                                <i class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                                <i class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Form inside Offcanvas -->
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+
+
+<!-- navbar -->
+<header class="sticky-top">
+    <!-- The navbar needs navbar-expand-lg removed to use the offcanvas on all sizes, or navbar-expand-lg
+         will automatically open the menu on LG. We will add a utility class to control the toggler display. -->
+    <nav class="navbar navbar-custom navbar-dark">
+        <!-- Using container-fluid here, which is common with offcanvas examples, but keeping your original custom classes -->
+        <div class="container-fluid container-lg container-md"> 
+            
+            <!-- Logo - Removed the unnecessary <div class="row"> -->
+            <a class="navbar-brand navbar-brand-text float-start" href="#">
+                <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+            </a>
+            
+            <!-- 1. DESKTOP NAVIGATION CONTENT (Visible on LG screen and up - NO FLEX) -->
+            <!-- This section is for the desktop layout, now using float and inline-block for layout -->
+            <div class="d-none d-lg-block" id="navbarNavDesktop" style="width: 80%; float: right;">
+                
+                <!-- Main Navigation Links (Icon-only for Desktop - NO FLEX) -->
+                <!-- Using inline-block for horizontal alignment and float for grouping -->
+                <ul class="navbar-nav nav-text float-start" style="list-style: none; padding: 0; margin: 0; display: inline-block; width: 50%;">
+                    <li class="nav-item" style="display: inline-block; margin-right: 30px;">
+                        <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                            <i class="fa-regular fa-house fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="display: inline-block; margin-right: 30px;">
+                        <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                            <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="display: inline-block; margin-right: 30px;">
+                        <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                            <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="display: inline-block;">
+                        <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                            <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Search Form (Right-aligned for Desktop - NO FLEX) -->
+                <form class="float-end" role="search" style="width: 40%; max-width: 300px;">
+                    <div style="display: inline-block; width: calc(100% - 80px);">
+                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search" aria-label="Search" style="display: inline-block; width: 100%;" />
+                    </div>
+                    <button class="btn navbar-search-button navbar-search-button-text" type="submit" style="float: right;">Search</button>
+                </form>
+                
+                <!-- Clear the floats -->
+                <div style="clear: both;"></div>
+            </div>
+
+
+            <!-- 2. TOGGLER BUTTON (Only visible on MD/SM screens, hidden on LG) -->
+            <!-- Updated attributes to match the Offcanvas structure -->
+            <button class="navbar-toggler d-lg-none float-end" type="button" 
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            
+            <!-- 3. OFFCANVAS MENU (for Mobile, Hidden on LG screen) -->
+            <!-- Note: The Offcanvas component itself still uses internal Flexbox for layout, 
+                 but this is encapsulated within the Bootstrap component and doesn't rely 
+                 on global Flex utilities. -->
+            <div class="offcanvas offcanvas-end navbar-dark navbar-custom" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">MountPinoy Menu</h5>
+                    <!-- Use a white close button since the background is dark custom color -->
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                    <!-- Navigation Links inside Offcanvas (use text + icon for clarity on mobile) -->
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                                <i class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                                <i class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                                <i class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                                <i class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Form inside Offcanvas -->
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+
+
+<!-- navbar -->
+<header class="sticky-top">
+    <!-- Removed navbar-expand-lg to ensure the toggler is always visible on mobile, 
+         and replaced with a standard navbar class -->
+    <nav class="navbar navbar-custom navbar-dark">
+        <!-- Using container-fluid for a more reliable Offcanvas trigger area -->
+        <div class="container-fluid">
+            
+            <!-- Logo (Simplified structure, removed the extra <div class="row">) -->
+            <a class="navbar-brand navbar-brand-text" href="#">
+                <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+            </a>
+            
+            <!-- 1. TOGGLER BUTTON -->
+            <!-- Updated data-bs-target to point to the new Offcanvas ID: #offcanvasNavbar -->
+            <button class="navbar-toggler" type="button" 
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            
+            <!-- 2. OFFCANVAS MENU CONTAINER -->
+            <!-- Replaced the old <div class="collapse navbar-collapse"> with the offcanvas structure -->
+            <div class="offcanvas offcanvas-end navbar-dark navbar-custom" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">MountPinoy Menu</h5>
+                    <!-- Use a white close button since the background is dark custom color -->
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                
+                <div class="offcanvas-body">
+                    
+                    <!-- Navigation Links (Using Flexbox to center, as is standard in the Offcanvas body) -->
+                    <!-- On mobile, it's better to show text next to the icon for clarity. -->
+                    <ul class="navbar-nav justify-content-start flex-grow-1 pe-3 nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                                <i class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                                <i class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                                <i class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                                <i class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Form -->
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                    </form>
+
+                </div>
+            </div>
+            
+            <!-- 3. DESKTOP LINKS (Visible on LG/MD screens) -->
+            <!-- This section shows the links horizontally on large screens. 
+                 Since we removed navbar-expand-lg from <nav>, we must use a separate collapse 
+                 for the desktop view which is always open on large screens. -->
+            <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNavDesktop">
+                 <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                            <i class="fa-regular fa-house fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                            <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                            <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                            <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+                 <form class="d-flex ms-auto" role="search">
+                    <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
+                        aria-label="Search" />
+                    <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                </form>
+            </div>
+
+
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+
+
+<!--================== OLD VERSION ng navbar ko =========================-->
+<header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+            <div class="container-lg container-md">
+                <div class="row">
+                    <a class="navbar-brand navbar-brand-text" href="#">
+                        <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                                <i class="fa-regular fa-house fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                                <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                                <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                                <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                        <!--
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        -->
+                    </form>
+
+                </div>
+            </div>
+        </nav>
+    </header>
