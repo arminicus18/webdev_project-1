@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <title>
+        Mount Pinoy - Your gateway to Philippine Peaks!
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" type="text/css" href="mountpinoy.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/97fe9f84ce.js" crossorigin="anonymous"></script>
+    <script defer src="mountpinoy.js"></script>
+</head>
+
+
+<body>
+    <!-- navbar -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+            <div class="container-lg container-md">
+                <div class="row">
+                    <a class="navbar-brand navbar-brand-text" href="#">
+                        <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- for desktop screens -->
+                <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                    <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="mountpinoy.html">
+                                <i class="fa-regular fa-house fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                                <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                                <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                                <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                        <!--
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        -->
+                    </form>
+
+                </div>
+                <!-- for md to sm screens -->
+
+                <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1"
+                    id="navbarOffcanvas">
+
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Menu</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <!-- same nav items but stacked -->
+                        <ul class="navbar-nav nav-text">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-text navbar-font-size" href="mountpinoy.html">
+                                    <i class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                                    <i class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                                    <i class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                                    <i class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
+                            aria-label="Search" />
+                        <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                        <!--
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        -->
+                    </form>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+
+    <main>
+        <!-- hero part -->
+        <section class="hero">
+            <div class="hero-image">
+                <div class="hero-heading">
+                    <h1 class="hero-text"> <span class="hero-adventure">LOCAL</span> TRAILS: BIG <span
+                            class="hero-local">ADVENTURES!</span></h1>
+                    <div class="hero-subheading">
+                        <p>From <span style="color: rgb(65, 65, 188);">Luzon</span>, <span
+                                style="color: #ffc107;">Visayas</span> and
+                            <span style="color: rgb(210, 82, 82);">Mindanao</span>, discover breathtaking trails,
+                            plan your next hike,
+                        </p>
+                        <p>and experience the true spirit of Philippine mountains. Adventure awaits, kabayan!</p>
+                        <button type="button" class="btn btn-lg btn-climb">Akyat na!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- luzon, vis, mindanao part -->
+        <section class="featured-destinations py-5">
+            <div class="container py-5">
+                <h2 class="text-center section-heading mb-5">Different Regions, Different Challenges</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card mountain-card">
+                            <img src="branding/luzon.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Luzon: Cold Treks</h5>
+                                <p class="card-text">Home to the country's highest peaks, Luzon trails often involve
+                                    long, high-altitude climbs,
+                                    cold weather, and pine forest environments. Challenges include exposure and
+                                    distance.</p>
+                                <a href="#" class="btn btn-climb btn-card-details">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card mountain-card">
+                            <img src="branding/visayas.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Visayas: Rugged Terrains</h5>
+                                <p class="card-text">Trails here are typically characterized by shorter, steeper
+                                    ascents, active limestone formations,
+                                    and dense tropical rainforests. Expect rocky paths and high humidity.</p>
+                                <a href="#" class="btn btn-climb btn-card-details">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-3 col-sm-12">
+                        <div class="card mountain-card">
+                            <img src="branding/mindanao.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Mindanao: Volcanic Trail</h5>
+                                <p class="card-text">The south offers rugged, remote trails through mossy
+                                    forests, volcanic terrain and include dense jungle navigation, and multi-day,
+                                    self-sufficient treks.</p>
+                                <a href="#" class="btn btn-climb btn-card-details">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--skill level alternative design-->
+        <section class="skill-levels-alt py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h2 class="text-center section-heading mb-5">Your Skill Level, Your Adventure</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container position-relative">
+                <div class="timeline">
+                    <!-- Left side -->
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3 class="card-title-horizontal text-success">The Beginner: Easy Day Hikes</h3>
+                            <div class="zoom-wrapper">
+                                <a href="">
+                                    <img src="branding/beginner-trail.jpg" alt="Beginner Trail"
+                                        class="skill-img timeline-img">
+                                </a>
+                            </div>
+                            <p class="card-text-horizontal">Perfect for first-timers and families. Features
+                                well-established trails, minimal
+                                elevation gain, and short duration (3-5 hours).</p>
+                            <a href="#" class="btn skill-btn">Find Beginner Hikes</a>
+                        </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3 class="card-title-horizontal text-warning">The Intermediate: Full-Day</h3>
+                            <div class="zoom-wrapper">
+                                <a href="">
+                                    <img src="branding/intermediate-trail.jpg" alt="Intermediate Trail"
+                                        class="skill-img timeline-img">
+                                </a>
+                            </div>
+                            <p class="card-text-horizontal">Suitable for those with basic fitness and a few day-hike
+                                experiences. Expect moderate
+                                elevation changes and mixed terrain.</p>
+                            <a href="#" class="btn skill-btn">Find Intermediate Hikes</a>
+                        </div>
+                    </div>
+
+                    <!-- Left side -->
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3 class="card-title-horizontal text-advance">The Advanced: Overnight Trails</h3>
+                            <div class="zoom-wrapper">
+                                <a href="">
+                                    <img src="branding/advance-trail.jpg" alt="Advanced Trail"
+                                        class="skill-img timeline-img">
+                                </a>
+                            </div>
+                            <p class="card-text-horizontal">For experienced hikers. Steep climbs, muddy paths, and
+                                breathtaking summit views await!
+                            </p>
+                            <a href="#" class="btn skill-btn">Find Advanced Treks</a>
+                        </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3 class="card-title-horizontal text-danger">The Expert: Expedition Challenges</h3>
+                            <div class="zoom-wrapper">
+                                <a href="">
+                                    <img src="branding/expert-trail.png" alt="Expert Trail"
+                                        class="skill-img timeline-img">
+                                </a>
+                            </div>
+                            <p class="card-text-horizontal">For seasoned mountaineers ready for multi-day expeditions
+                                with technical climbs and
+                                remote trails.</p>
+                            <a href="#" class="btn skill-btn">Find Expert Treks</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- featured adventures -->
+        <section class="featured-tours-section py-5">
+            <div class="container py-5">
+                <h2 class="sample-activities-head section-heading mb-5 ">
+                    Joiners' Top-Rated Adventures
+                </h2>
+                <div class="row py-5">
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/mt-pulag.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Kabayan, Benguet</span>
+                                <h5 class="card-title tour-title">Mt. Pulag via Ambangeg Trail</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.9</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱4,800</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/mt-pinatubo.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Tarlac-Zambales</span>
+                                <h5 class="card-title tour-title">Mt. Pinatubo via 4x4</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱3,500</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/mt-ulap.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Itogon, Benguet</span>
+                                <h5 class="card-title tour-title">Mt. Ulap Traverse Eco-Trail</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱1,500</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/mascap.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Rodriguez, Rizal</span>
+                                <h5 class="card-title tour-title">Mascap Trilogy (Espadang Bato)</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.8</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱1,800</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/alicia.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Alicia, Bohol</span>
+                                <h5 class="card-title tour-title">Alicia Panoramic Park</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱1,100</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/marlboro.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Sagada, Mt. Province</span>
+                                <h5 class="card-title tour-title">Marlboro Hill and Sagada Trip 3D2N</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱4,500</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/mt-kabunian.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Bakun, Benguet</span>
+                                <h5 class="card-title tour-title">Mt. Kabunian day-hike</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.8</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱2,300</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/mt-batulao.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Nasugbu, Batangas</span>
+                                <h5 class="card-title tour-title">Mt. Batulao</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.7</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱1,000</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mountains and More -->
+        <section class="featured-tours-section py-5">
+            <div class="container py-5">
+                <h2 class="sample-activities-head section-heading mb-5 ">
+                    Mountains and More!
+                </h2>
+
+                <div class="row py-5">
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/ilocos.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Ilocos</span>
+                                <h5 class="card-title tour-title">Ilocos Tri-City Tour 4D3N</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.8</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱5,500</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/fortune-island.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Batangas</span>
+                                <h5 class="card-title tour-title">Fortune Island Daytour</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱2,100</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/hundred.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">alaminos, pangasinan</span>
+                                <h5 class="card-title tour-title">Island Hopping at Hundred Islands</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱2,000</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/baguio.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">baguio city</span>
+                                <h5 class="card-title tour-title">Baguio City 3D2N</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.8</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱1,800</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/mapanuepe.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">san marcelino, Zambales</span>
+                                <h5 class="card-title tour-title">Star Gazing at Lake Mapanuepe</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱3,000</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/elyu.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">La Union</span>
+                                <h5 class="card-title tour-title">Beach Gateaway at La Union</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱2,500</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/corregidor.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">cavite</span>
+                                <h5 class="card-title tour-title">Corregidor Island Tour</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.8</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱1,800</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <a href="#" class="text-decoration-none"></a>
+                        <div class="card tour-card">
+                            <div class="card-image-wrapper">
+                                <div class="zoom-wrapper">
+                                    <img src="branding/albay.jpg" class="card-img-top" alt="mt.pulag climb">
+                                </div>
+                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
+                                    <i class="fa-regular fa-bookmark fav-btn"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <span class="location-tag">Albay</span>
+                                <h5 class="card-title tour-title">Bicol Escapade 4D3N</h5>
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="rating-number">4.9</span>
+                                    <span class="rating-stars me-2">
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle-half-stroke"></i>
+                                    </span>
+                                    <span class="review-count">(99+)</span>
+                                </div>
+                                <div class="price-display mt-10">
+                                    <span class="price-label">from</span>
+                                    <span class="price-amount">₱6,000</span>
+                                    <span class="price-unit">per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- tesimonials -->
+        <section class="testimonials-section py-5 bg-darker">
+            <div class="container py-5">
+                <h2 class="text-center section-heading mb-5 py-5">
+                    Why choose <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>?
+                </h2>
+
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10 col-12 mx-auto">
+                                    <div class="card testimonial-carousel-card">
+                                        <div class="card-body text-center">
+                                            <div class="testimonial-img-wrapper">
+                                                <img src="branding/client-1.jpg" class="testimonial-img mb-4"
+                                                    alt="Client 1 Profile Picture">
+                                            </div>
+                                            <div class="rating mb-4">
+                                                <span class="star-gold">
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                                </span>
+                                            </div>
+                                            <blockquote class="blockquote mb-0">
+                                                <p class="quote-text">"The organization was flawless. We conquered Mt.
+                                                    Pulag
+                                                    thanks to their expert guides. Truly the best way to experience the
+                                                    Cordilleras!"</p>
+                                            </blockquote>
+                                            <footer class="blockquote-footer mt-3"><cite title="Source Title">Mark L.
+                                                    (Advanced Hiker)</cite></footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10 col-12 mx-auto">
+                                    <div class="card testimonial-carousel-card">
+                                        <div class="card-body text-center">
+                                            <div class="testimonial-img-wrapper">
+                                                <img src="branding/client-2.jpg" class="testimonial-img mb-4"
+                                                    alt="Client 2 Profile Picture">
+                                            </div>
+                                            <div class="rating mb-4">
+                                                <span class="star-gold">
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                                </span>
+                                            </div>
+                                            <blockquote class="blockquote mb-0">
+                                                <p class="quote-text">"Highly recommended for beginners! My family felt
+                                                    safe
+                                                    and supported on our first hike in Batulao. Amazing views and
+                                                    memories."
+                                                </p>
+                                            </blockquote>
+                                            <footer class="blockquote-footer mt-3"><cite title="Source Title">Andrea S.
+                                                    (Family Day Trek)</cite></footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10 col-12 mx-auto">
+                                    <div class="card testimonial-carousel-card">
+                                        <div class="card-body text-center">
+                                            <div class="testimonial-img-wrapper">
+                                                <img src="branding/client-3.jpg" class="testimonial-img mb-4"
+                                                    alt="Client 3 Profile Picture">
+                                            </div>
+                                            <div class="rating mb-4">
+                                                <span class="star-gold">
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                </span>
+                                            </div>
+                                            <blockquote class="blockquote mb-0">
+                                                <p class="quote-text">"Their expert expedition to Mount Apo was
+                                                    challenging
+                                                    but incredibly rewarding. Everything was handled perfectly, from
+                                                    permits
+                                                    to logistics."</p>
+                                                <footer class="blockquote-footer mt-3"><cite title="Source Title">Rico
+                                                        P.
+                                                        (Expert Mountaineer)</cite></footer>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10 col-12 mx-auto">
+                                    <div class="card testimonial-carousel-card">
+                                        <div class="card-body text-center">
+                                            <div class="testimonial-img-wrapper">
+                                                <img src="branding/client-4.jpg" class="testimonial-img mb-4"
+                                                    alt="Client 4 Profile Picture">
+                                            </div>
+                                            <div class="rating mb-4">
+                                                <span class="star-gold">
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                                </span>
+                                            </div>
+                                            <blockquote class="blockquote mb-0">
+                                                <p class="quote-text">"MountPinoy is the only company I trust for
+                                                    Philippine
+                                                    treks. Unbeatable local knowledge and commitment to safety!"</p>
+                                            </blockquote>
+                                            <footer class="blockquote-footer mt-3"><cite title="Source Title">Cris V.
+                                                    (Repeat Customer)</cite></footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- services included -->
+        <section class="services-bg">
+            <div class="container-fluid py-5">
+                <div class="row py-5 justify-content-center">
+
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-van-shuttle service-icon"></i>
+                        </div>
+                        <p class="service-text">Comfortable and high roof vans</p>
+                        <p class="service-description">Travel in spacious, top-of-the-line comfort.</p>
+                    </div>
+
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-camera2 service-icon"></i>
+                        </div>
+                        <p class="service-text">Free drone shot and high quality pictures</p>
+                        <p class="service-description">Receive stunning, professional-grade memories.</p>
+                    </div>
+
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-people-fill service-icon"></i>
+                        </div>
+                        <p class="service-text">Accomodating organizer</p>
+                        <p class="service-description">Relax while every itinerary detail is managed.</p>
+                    </div>
+
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-hearts service-icon"></i>
+                        </div>
+                        <p class="service-text">Gentle local guides</p>
+                        <p class="service-description">Explore with caring experts who know the area best.</p>
+                    </div>
+
+                </div>
+                <div class="row pb-5 justify-content-center">
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-trophy-fill service-icon"></i>
+                        </div>
+                        <p class="service-text">Proven Track Record</p>
+                        <p class="service-description">Successfully completed over 90 high-altitude trips.</p>
+                    </div>
+
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-leaf-fill service-icon"></i>
+                        </div>
+                        <p class="service-text">Ethical & Sustainable</p>
+                        <p class="service-description">Eco-certified partnerships that minimize environmental impact.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 offset-lg-0 col-md-6">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-shield-fill-check service-icon"></i>
+                        </div>
+                        <p class="service-text">Safety First!</p>
+                        <p class="service-description">Prioritize safety of the joiners</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- last call to action section -->
+        <section class="final-cta py-5 text-white text-center" style="background-color: #2f5d34;">
+            <div class="container py-4">
+
+                <h2 class="display-5 fw-bold mb-3">
+                    Ready to Conquer Your Next Mountain?
+                </h2>
+
+                <p class="lead mb-4 mx-auto" style="max-width: 700px;">
+                    Your adventure in the Philippines awaits. View our full tour list or contact our expedition
+                    specialists today to customize your trek.
+                </p>
+
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+
+                    <a href="tours.html" class="btn btn-warning btn-lg px-4 me-sm-3 fw-bold">
+                        Browse All Treks
+                    </a>
+
+                    <a href="contact.html" class="btn btn-outline-light btn-lg px-4">
+                        Talk to a Specialist
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <!-- footer section -->
+        <footer class="footer mt-auto py-5 text-white" style="background-color: #1a1a1a;">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <h5 class="mb-3">
+                            <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+                        </h5>
+                        <p class="text-secondary small">
+                            Your trusted guide to exploring the most majestic peaks and hidden trails across the
+                            Philippines. Safety, sustainability, and adventure.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <h5 class="text-success mb-3">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="tours.html" class="text-white text-decoration-none small">All
+                                    Tours & Expeditions</a></li>
+                            <li class="mb-2"><a href="about.html" class="text-white text-decoration-none small">About
+                                    Us</a></li>
+                            <li class="mb-2"><a href="faqs.html" class="text-white text-decoration-none small">FAQ &
+                                    Preparation</a></li>
+                            <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none small">Adventure
+                                    Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <h5 class="text-success mb-3">Get in Touch</h5>
+                        <ul class="list-unstyled text-secondary small">
+                            <li class="mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@mountpinoy.ph</li>
+                            <li class="mb-2"><i class="fas fa-phone me-2 text-warning"></i> +63 923 417 5772</li>
+                            <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Carmona, Cavite,
+                                Philippines</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <h5 class="text-success mb-3">Connect</h5>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+
+                        <p class="text-secondary mt-3 small">Subscribe for early bird specials.</p>
+                        <form>
+                            <div class="input-group">
+                                <input type="email" class="form-control form-control-sm" placeholder="Your Email"
+                                    aria-label="Email for newsletter">
+                                <button class="btn btn-warning btn-sm" type="submit">Go</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <hr class="border-secondary">
+                <div class="row">
+                    <div class="col-12 text-center small text-secondary pt-3">
+                        &copy; 2025 MountPinoy Expeditions. All rights reserved. | <a href="#"
+                            class="text-warning text-decoration-none">DE ROSAS ARMIN CPE41</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>
