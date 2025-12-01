@@ -1,3 +1,4 @@
+/* ============= navbar status ============= */
 const activePage = window.location.pathname.split("/").pop(); // get file name only
 const navLinks = document.querySelectorAll("nav a");
 
@@ -11,3 +12,4 @@ navLinks.forEach(link => {
 });
 
 
+/* ============= pulling images from db, to front end (Featured Tours) ============= */
