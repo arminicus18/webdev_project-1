@@ -10,13 +10,13 @@ $connectionOptions = [
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 
 if ($conn === false) {
-    // Return error as JSON so JS can handle it
     echo json_encode(["error" => print_r(sqlsrv_errors(), true)]);
     exit;
 }
 
-// 2. FETCH ACTIVE TOURS
-$sql = "SELECT * FROM TOURS_7 WHERE IS_ACTIVE = 1 AND CATEGORY IN ('Hike')";
+// 2. FETCH 'OTHERS' AND 'BEACH' TOURS
+// This is the ONLY line that is different from your featured php
+$sql = "SELECT * FROM TOURS_7 WHERE CATEGORY IN ('Others', 'Beach')";
 $stmt = sqlsrv_query($conn, $sql);
 
 if ($stmt === false) {
@@ -28,14 +28,11 @@ if ($stmt === false) {
 $tours = array();
 
 while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-    // Clean up the data or format it if needed
+    // Format Price
     $row['PRICE'] = number_format($row['PRICE'], 2);
     $tours[] = $row;
 }
 
-// Set header to tell browser this is JSON data, not HTML
 header('Content-Type: application/json');
-
-// Output the data
 echo json_encode($tours);
 ?>

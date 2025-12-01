@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (move_uploaded_file($_FILES['IMAGE_URL']['tmp_name'], $targetfilepath)) {
             
             // 5. INSERT INTO DATABASE (Direct Variable Injection)
-            $sql = "INSERT INTO TOURS_6 
+            $sql = "INSERT INTO TOURS_7 
                     (TOUR_NAME, CATEGORY, LOCATION, DIFFICULTY, CLASS, RATING, REVIEWS, PRICE, DURATION, IMAGE_URL, IS_ACTIVE)
                     VALUES 
                     ('$TOUR_NAME', '$CATEGORY', '$LOCATION', '$DIFFICULTY', '$CLASS', '$RATING', '$REVIEWS', '$PRICE', '$DURATION', '$targetfilepath', '$IS_ACTIVE')";
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $new_status = $_POST['NEW_STATUS']; // 1 or 0
 
         // Direct Variable Injection
-        $sql = "UPDATE TOURS_6 SET IS_ACTIVE = '$new_status' WHERE TOUR_ID = '$tour_id'";
+        $sql = "UPDATE TOURS_7 SET IS_ACTIVE = '$new_status' WHERE TOUR_ID = '$tour_id'";
         
         $stmt = sqlsrv_query($conn, $sql);
 
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $tour_id = $_POST['TOUR_ID_DELETE'];
 
         // Direct Variable Injection
-        $sql = "DELETE FROM TOURS_6 WHERE TOUR_ID = '$tour_id'";
+        $sql = "DELETE FROM TOURS_7 WHERE TOUR_ID = '$tour_id'";
 
         $stmt = sqlsrv_query($conn, $sql);
 
