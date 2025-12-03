@@ -25,44 +25,87 @@
     <script defer src="mountpinoy.js"></script>
     <script src="get_featured.js"></script>
     <script src="get_others.js"></script>
+    <script src="navbar.js"></script>
 </head>
 
 
 <body>
     <!-- navbar -->
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
-            <div class="container-lg container-md">
-                <div class="row">
-                    <a class="navbar-brand navbar-brand-text" href="#">
-                        <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
-                    </a>
+    <nav class="fixed-top navbar navbar-expand-lg navbar-custom navbar-dark">
+        <div class="container-lg container-md">
+            <div class="row">
+                <a class="navbar-brand navbar-brand-text" href="index.html">
+                    <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- for desktop screens -->
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="index.html">
+                            <i class="fa-regular fa-house fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                            <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                            <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                            <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
+                        aria-label="Search" />
+                    <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
+                    <!--
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        -->
+                </form>
+
+            </div>
+            <!-- for md to sm screens -->
+
+            <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1" id="navbarOffcanvas">
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- for desktop screens -->
-                <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
-                    <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
+
+                <div class="offcanvas-body">
+                    <!-- same nav items but stacked -->
+                    <ul class="navbar-nav nav-text">
                         <li class="nav-item">
-                            <a class="nav-link navbar-text navbar-font-size" aria-current="page" href="index.html">
-                                <i class="fa-regular fa-house fa-lg nav-icon"></i>
+                            <a class="nav-link navbar-text navbar-font-size" href="mountpinoy.html">
+                                <i class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-text navbar-font-size" href="tours.html">
-                                <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
+                                <i class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-text navbar-font-size" href="events.html">
-                                <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
+                                <i class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-text navbar-font-size" href="tips.html">
-                                <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
+                                <i class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips
                             </a>
                         </li>
                     </ul>
@@ -74,56 +117,11 @@
                         <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                         -->
                     </form>
-
                 </div>
-                <!-- for md to sm screens -->
-
-                <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1"
-                    id="navbarOffcanvas">
-
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title">Menu</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-                    </div>
-
-                    <div class="offcanvas-body">
-                        <!-- same nav items but stacked -->
-                        <ul class="navbar-nav nav-text">
-                            <li class="nav-item">
-                                <a class="nav-link navbar-text navbar-font-size" href="mountpinoy.html">
-                                    <i class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-text navbar-font-size" href="tours.html">
-                                    <i class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-text navbar-font-size" href="events.html">
-                                    <i class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-text navbar-font-size" href="tips.html">
-                                    <i class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips
-                                </a>
-                            </li>
-                        </ul>
-                        <form class="d-flex" role="search">
-                        <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
-                            aria-label="Search" />
-                        <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
-                        <!--
-                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                        -->
-                    </form>
-                    </div>
-                </div>
-
             </div>
-        </nav>
-    </header>
+
+        </div>
+    </nav>
 
 
 
@@ -144,7 +142,7 @@
                             plan your next hike,
                         </p>
                         <p>and experience the true spirit of Philippine mountains. Adventure awaits, kabayan!</p>
-                        <button type="button" class="btn btn-lg btn-climb">Akyat na!</button>
+                        <button type="submit" class="btn btn-lg btn-climb">Akyat na!</button>
                     </div>
                 </div>
             </div>
@@ -302,7 +300,7 @@
 
         <!-- Mountains and More -->
         <section class="featured-tours-section py-5">
-            <div class="container py-5">
+            <div class="container">
                 <h2 class="section-heading mb-5 text-white">
                     Mountains and More!
                 </h2>
@@ -678,7 +676,7 @@
 
 
 
-
+    <script src="navbar.js"></script>
 
 </body>
 

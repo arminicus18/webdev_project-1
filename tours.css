@@ -1,0 +1,168 @@
+/* ================== NAVBAR SECTION * ================== */
+.nav-text {
+    justify-content: flex-end;
+}
+
+.navbar-brand-text {
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.logo-mount {
+    color: #4CAF50;
+    transition: color 0.3s ease; 
+}
+
+.logo-pinoy {
+    color: #FFC107;
+    transition: color 0.3s ease; 
+}
+
+.navbar-brand-text:hover .logo-mount {
+    color: #FFC107; 
+}
+
+.navbar-brand-text:hover .logo-pinoy {
+    color: #4CAF50; 
+}
+
+.navbar:hover {
+    background-color: #2c2c2c;
+}
+
+.navbar-custom {
+    background-color: #000;
+    display: flex;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+body {
+    background-color: #2c2c2c;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-search {
+    margin-left: auto;
+    margin-right: 20px;
+    width: 130px;
+}
+
+.navbar-search-button {
+    border: black;
+    background-color: #2f5d34;
+    width: 80px;
+    color: white
+}
+
+.navbar-search-button-text {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-search-button:hover {
+    background-color: #5f9465;
+}
+
+.navbar-text {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-text:hover {
+    color: #f7c32e;
+}
+
+.navbar-text.active {
+    border-bottom: 3px solid #ffc107;
+}
+
+
+/* ================== OFFCANVAS NAVBAR SECTION ================== */
+/* -------------------------------------------
+   OFFCANVAS IMPROVEMENTS (MD and below)
+------------------------------------------- */
+
+/* Offcanvas background */
+.offcanvas.navbar-custom {
+    background-color: #000;        /* matches your navbar */
+    border-left: 1px solid #333;   /* subtle separation */
+    padding-top: 15px;
+}
+
+/* Header inside offcanvas */
+.offcanvas-header {
+    border-bottom: 1px solid #333;
+}
+
+/* Title text color */
+.offcanvas-title {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation links inside offcanvas */
+.offcanvas-body .nav-link {
+    color: white;
+    font-size: 18px;
+    padding: 12px 0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+}
+
+/* Hover behavior */
+.offcanvas-body .nav-link:hover {
+    background-color: #1c1c1c;
+    color: #f7c32e; /* your yellow */
+    padding-left: 10px; /* subtle slide effect */
+    transition: 0.25s ease;
+}
+
+/* Icons - improve alignment */
+.offcanvas-body .nav-icon {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+/* Optional: Increase spacing between items */
+.offcanvas-body .navbar-nav .nav-item {
+    margin-bottom: 6px;
+}
+
+/* Search form inside offcanvas */
+.offcanvas-body .navbar-search {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    color: white;
+}
+
+.offcanvas-body .navbar-search::placeholder {
+    color: #bbb;
+}
+
+.offcanvas-body .navbar-search-button {
+    background-color: #4CAF50;
+}
+
+.offcanvas-body .navbar-search-button:hover {
+    background-color: #5f9465;
+}
+
+/* Improve the toggler button appearance on dark background */
+.navbar-toggler {
+    border: none;
+    padding: 8px 10px;
+    background-color: #2c2c2c;
+    border-radius: 6px;
+}
+
+.navbar-toggler:hover {
+    background-color: #3a3a3a;
+}

@@ -30,7 +30,7 @@ async function fetchTours() {
 
             // Build the card HTML string
             const cardHTML = `
-                <div class="col-lg-3 offset-lg-0 col-md-6 d-flex align-items-stretch">
+                <div class="col-lg-3 offset-lg-0 col-md-6 d-flex align-items-stretch mb-4">
                     <a href="#" class="text-decoration-none w-100">
                         <div class="card tour-card">
                             <div class="card-image-wrapper">
@@ -48,7 +48,11 @@ async function fetchTours() {
                                 <div class="d-flex align-items-center mb-2">
                                     <span class="rating-number">${rating}</span>
                                     <span class="rating-stars me-2">
-                                        <i class="fa-solid fa-circle"></i><i class="fa-solid fa-circle"></i><i class="fa-solid fa-circle"></i><i class="fa-solid fa-circle"></i><i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
+                                        <i class="fa-solid fa-circle"></i>
                                     </span>
                                     <span class="review-count">${reviews}</span>
                                 </div>

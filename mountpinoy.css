@@ -32,8 +32,13 @@
 
 .navbar-custom {
     background-color: #000;
-    height: 80px;
     display: flex;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
 }
 
 

@@ -33,7 +33,7 @@ async function fetchOthers() {
             const price = tour.PRICE; // Already formatted with commas by PHP
 
             const cardHTML = `
-                <div class="col-lg-3 offset-lg-0 col-md-6 mb-4">
+                <div class="col-lg-3 offset-lg-0 col-md-6 d-flex align-items-stretch mb-4">
                     <a href="#" class="text-decoration-none w-100">
                         <div class="card tour-card">
                             <div class="card-image-wrapper">
