@@ -776,4 +776,27 @@ body {
 }
 
 
+/* ================== CUSTOM DARK MODAL ================== */
+
+/* 1. The Main Modal Background */
+.custom-dark-modal {
+    background-color: #2c2c2c; /* Matches your website body */
+    border: 1px solid #444;    /* Subtle border to separate from background */
+    box-shadow: 0 0 20px rgba(0,0,0,0.8); /* Strong shadow for depth */
+    border-radius: 12px;
+}
+
+/* 2. Button Hover Effects */
+.custom-dark-modal .btn-outline-light:hover {
+    background-color: #444;
+    color: #FFC107; /* Turns text yellow on hover */
+    border-color: #FFC107;
+}
+
+/* 3. The Green Button Hover */
+.custom-dark-modal .btn[style*="background-color: #4CAF50"]:hover {
+    background-color: #5f9465 !important; /* Slightly lighter green */
+}
+
+
 /* ================== LAST CTA SECTION ================== */

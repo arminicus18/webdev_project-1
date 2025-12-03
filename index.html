@@ -26,6 +26,7 @@
     <script src="get_featured.js"></script>
     <script src="get_others.js"></script>
     <script src="navbar.js"></script>
+    <script src="bookmark.js"></script>
 </head>
 
 
@@ -249,7 +250,7 @@
                             <h3 class="card-title-horizontal text-advance">The Advanced: Overnight Trails</h3>
                             <div class="zoom-wrapper">
                                 <a href="">
-                                    <img src="branding/advance-trail.jpg" alt="Advanced Trail"
+                                    <img src="branding/advance-trail-1.jpg" alt="Advanced Trail"
                                         class="skill-img timeline-img">
                                 </a>
                             </div>
@@ -585,7 +586,48 @@
 
 
 
+        <!-- modal for saving the tour -->
+        <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content custom-dark-modal">
+                    <div class="modal-header border-0 pb-0">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
 
+                    <div class="modal-body text-center px-4 pb-4">
+                        <div class="mb-3" style="color: #FFC107;">
+                            <i class="fa-solid fa-bookmark fa-3x"></i>
+                            <!--
+                            <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+                            -->
+                        </div>
+
+                        <h4 class="modal-title fw-bold mb-3 text-white">Save your adventure!</h4>
+                        <p class="small mb-4" style="color: #bbb;">
+                            Sign in to save this hike to your wishlist so you can easily compare trails later.
+                        </p>
+
+                        <div class="d-grid gap-3">
+                            <button class="btn btn-outline-light d-flex align-items-center justify-content-center py-2"
+                                type="button">
+                                <i class="fa-brands fa-google me-2"></i> Continue with Google
+                            </button>
+
+                            <button class="btn btn-outline-light d-flex align-items-center justify-content-center py-2"
+                                type="button">
+                                <i class="fa-brands fa-facebook me-2"></i> Continue with Facebook
+                            </button>
+
+                            <button class="btn text-white py-2 fw-bold mt-2"
+                                style="background-color: #4CAF50; border: none;" type="button">
+                                Sign Up / Log In with Email
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- footer section -->
         <footer class="footer mt-auto py-5 text-white" style="background-color: #1a1a1a;">
@@ -628,9 +670,9 @@
 
                     <div class="col-lg-3 col-md-6 mb-4">
                         <h5 class="text-success mb-3">Connect</h5>
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="https://www.facebook.com/armin.derosas.18" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/arminicus18/" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.youtube.com/@arminderosas9461" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
 
                         <p class="text-secondary mt-3 small">Subscribe for early bird specials.</p>
                         <form>
