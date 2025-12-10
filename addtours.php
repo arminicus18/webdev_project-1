@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $PRICE = $_POST['PRICE'];
         $DURATION = $_POST['DURATION'];
         $ISLAND = $_POST['ISLAND'];
+        $MASL = $_POST['MASL'];
         
         // Handle Checkbox
         $IS_ACTIVE = isset($_POST['IS_ACTIVE']) ? 1 : 0;
@@ -52,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     VALUES 
                     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
-            $params = array($TOUR_NAME, $CATEGORY, $LOCATION, $DIFFICULTY, $CLASS, $RATING, $REVIEWS, $PRICE, $DURATION, $ISLAND, $targetfilepath, $IS_ACTIVE);
+            $params = array($TOUR_NAME, $CATEGORY, $LOCATION, $DIFFICULTY, $CLASS, $RATING, $REVIEWS, $PRICE, $DURATION, $ISLAND, $targetfilepath, $IS_ACTIVE, $MASL);
 
             $stmt = sqlsrv_query($conn, $sql, $params);
 
