@@ -27,11 +27,12 @@ async function fetchTours() {
             const rating = tour.RATING;
             const reviews = tour.REVIEWS;
             const price = tour.PRICE;
+            const id = tour.TOUR_ID
 
             // Build the card HTML string
             const cardHTML = `
                 <div class="col-lg-3 offset-lg-0 col-md-6 d-flex align-items-stretch mb-4">
-                    <a href="#" class="text-decoration-none w-100">
+                    <a href="tour_details.php?id=${id}" class="text-decoration-none w-100">
                         <div class="card tour-card">
                             <div class="card-image-wrapper">
                                 <div class="zoom-wrapper">

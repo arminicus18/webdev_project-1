@@ -16,6 +16,8 @@
 
         <!-- SECTION 1: ADD NEW TOUR -->
         <h3>Add New Tour</h3>
+        <a href="admin.php"> &larr; Back to Dashboard</a>
+
         <fieldset>
             <form action="addtours.php" method="POST" enctype="multipart/form-data">
 
@@ -48,7 +50,7 @@
                 <label><input type="radio" name="DIFFICULTY" value="6"> 6 </label>
                 <label><input type="radio" name="DIFFICULTY" value="7"> 7 </label>
                 <label><input type="radio" name="DIFFICULTY" value="8"> 8 </label>
-                <label><input type="radio" name="DIFFICULTY" value="9"> 9 </label> 
+                <label><input type="radio" name="DIFFICULTY" value="9"> 9 </label>
                 <br> <br>
 
                 <label>
@@ -88,6 +90,16 @@
                     </select>
                 </label> <br> <br>
 
+                <label>
+                    Island:
+                    <select name="ISLAND" required>
+                        <option value="" disabled selected>Select Island</option>
+                        <option value="Luzon">Luzon</option>
+                        <option value="Visayas">Visayas</option>
+                        <option value="Mindanao">Mindanao</option>
+                    </select>
+                </label> <br> <br>
+
                 <label>Tour Image:</label> <br>
                 <input type="file" name="IMAGE_URL" accept=".jpg, .jpeg, .png" required> <br><br>
 
@@ -103,17 +115,38 @@
         <br><br>
         <hr><br><br>
 
+        <h3>Step 2: Add Tour Details</h3>
+        <fieldset style="background-color: #e8f5e9; border: 2px dashed #4caf50;">
+
+            <p style="margin-top: 0;">
+                <strong>Next Step:</strong>
+                After adding a tour above, use this page to add the
+                <strong>Itinerary, Inclusions, Map, and Long Description</strong>.
+            </p>
+
+            <form action="add_details.php">
+                <button type="submit"
+                    style="background-color: #28a745; color: white; padding: 12px 24px; font-size: 16px; border: none; cursor: pointer; border-radius: 4px;">
+                    Go to Add Details Page &rarr;
+                </button>
+            </form>
+
+        </fieldset>
+
+        <br><br>
+        <hr><br><br>
+
         <!-- SECTION 2: CHANGE STATUS (NEW) -->
         <h3>Update Tour Visibility</h3>
         <fieldset style="background-color: #fff3e0;">
             <form action="addtours.php" method="POST">
-                
+
                 <p>Use this to hide a tour (e.g., fully booked) or show it again without deleting it.</p>
-                
+
                 <label>
                     <strong>Tour ID:</strong>
                     <input type="number" name="TOUR_ID_UPDATE" required placeholder="e.g. 1">
-                </label> 
+                </label>
                 <br> <br>
 
                 <label>
@@ -122,7 +155,7 @@
                         <option value="1">Active (Visible)</option>
                         <option value="0">Inactive (Hidden)</option>
                     </select>
-                </label> 
+                </label>
                 <br> <br>
 
                 <button type="submit" name="action_type" value="update_status">Update Status</button>
