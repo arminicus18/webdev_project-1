@@ -53,6 +53,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
     <script src="https://kit.fontawesome.com/97fe9f84ce.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="mountpinoy.css">
+    <link rel="stylesheet" type="text/css" href="tour_details.css">
 
     <style>
         :root {
@@ -81,177 +82,11 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
             padding-bottom: 60px;
             margin-bottom: 40px;
         }
-
-        .hero-title {
-            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
-            font-weight: 600;
-            color: var(--brand-accent);
-            letter-spacing: 2px;
-            font-size: 4rem;
-        }
-
-        /* --- CARDS & TIMELINE --- */
-        .card {
-            background-color: var(--brand-card-bg);
-            border: 1px solid #333;
-            color: #fff;
-            margin-bottom: 25px;
-        }
-
-        .card-title {
-            color: var(--brand-accent);
-            text-transform: uppercase;
-            font-weight: 700;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Sticky Booking Panel */
-        .booking-card {
-            position: sticky;
-            top: 100px;
-            /* Stick below navbar */
-            border: 1px solid var(--brand-accent);
-            box-shadow: 0 0 15px rgba(255, 193, 7, 0.1);
-        }
-
-        /* Timeline Styles */
-        .timeline-item {
-            border-left: 2px solid #444;
-            padding-left: 25px;
-            padding-bottom: 30px;
-            position: relative;
-            font-size: 1.05rem;
-        }
-
-        .timeline-item:last-child {
-            border-left: none;
-        }
-
-        .timeline-item::before {
-            content: "";
-            width: 14px;
-            height: 14px;
-            background: var(--brand-accent);
-            border-radius: 50%;
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            box-shadow: 0 0 8px var(--brand-accent);
-        }
-
-        .time-badge {
-            font-weight: bold;
-            color: var(--brand-accent);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* Inclusions List */
-        .check-list li {
-            list-style: none;
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .check-list li::before {
-            content: "\f00c";
-            /* FontAwesome Check */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--brand-accent);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Map Filter */
-        iframe {
-            filter: invert(90%) hue-rotate(180deg);
-            border-radius: 8px;
-        }
-
-        .elevation-glow-container {
-            position: sticky;
-            top: 100px;
-            margin-top: 15px;
-            /* Space between card and elevation */
-            background: rgba(0, 0, 0, 0.6);
-            /* Dark background to make green pop */
-            border: 1px solid #0f0;
-            /* Thin green border */
-            border-radius: 8px;
-            /* Matches your buttons */
-            padding: 15px;
-            text-align: center;
-
-            /* The Glow Effect on the box */
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2),
-                inset 0 0 10px rgba(0, 255, 0, 0.1);
-
-            /* Optional: Transition for hover effects */
-            transition: all 0.3s ease;
-        }
-
-        .elevation-glow-container:hover {
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.4),
-                inset 0 0 15px rgba(0, 255, 0, 0.2);
-        }
-
-        .sticky-sidebar {
-            flex-direction: column;
-        }
-
-        /* The Label (Small text) */
-        .elevation-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #aaddaa;
-            /* Pale green/white for readability */
-            margin-bottom: 5px;
-        }
-
-        /* The Value (The Big Number) */
-        .elevation-value {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #00ff41;
-            /* MATRIX GREEN - Replace with your project green */
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
-            /* Text Glow */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        /* The Little Mountain Icon Triangle */
-        .elevation-value .icon {
-            font-size: 1rem;
-            color: #00ff41;
-            animation: bounce 2s infinite;
-            /* Make it move slightly to catch the eye */
-        }
-
-        /* Optional Animation for the icon */
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-3px);
-            }
-        }
     </style>
 </head>
 
 <body>
-
+    <!-- navbar section -->
     <nav class="fixed-top navbar navbar-expand-lg navbar-custom navbar-dark">
         <div class="container-lg container-md">
             <div class="row">
@@ -316,7 +151,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
     </nav>
 
     <main>
-
+        <!-- hero section -->
         <header class="tour-header">
             <div class="container text-center">
                 <h1 class="display-3 hero-title"><?php echo $tour['TOUR_NAME']; ?></h1>
@@ -342,6 +177,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
 
                 <div class="col-lg-8">
 
+                    <!-- description -->
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-solid fa-mountain-sun me-2"></i> About this Adventure
@@ -352,6 +188,26 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     </div>
 
+                    <!-- inclusions section -->
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="card-title"><i class="fa-solid fa-check-double me-2"></i> What's Included</h3>
+
+                            <div class="inclusions-grid mt-3">
+                                <?php while ($inc = sqlsrv_fetch_array($stmt_inc, SQLSRV_FETCH_ASSOC)) { ?>
+
+                                    <div class="inclusion-item">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span><?php echo $inc['ITEM_NAME']; ?></span>
+                                    </div>
+
+                                <?php } ?>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- location -->
                     <?php if (!empty($details['GMAPS_LOC'])) { ?>
                         <div class="card shadow-sm">
                             <div class="card-body p-4">
@@ -363,35 +219,52 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     <?php } ?>
 
-                    <div class="card shadow-sm">
-                        <div class="card-body p-4">
-                            <h3 class="card-title"><i class="fa-solid fa-check-double me-2"></i> What's Included</h3>
-                            <ul class="check-list mt-3">
-                                <?php while ($inc = sqlsrv_fetch_array($stmt_inc, SQLSRV_FETCH_ASSOC)) { ?>
-                                    <li><?php echo $inc['ITEM_NAME']; ?></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
-
+                    <!-- itinerary section -->
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-regular fa-clock me-2"></i> Itinerary</h3>
-                            <div class="mt-4">
-                                <?php while ($itin = sqlsrv_fetch_array($stmt_itin, SQLSRV_FETCH_ASSOC)) { ?>
-                                    <div class="timeline-item">
-                                        <span class="time-badge"><?php echo $itin['TIME_MARKER']; ?></span>
-                                        <span><?php echo $itin['ACTIVITY_DESC']; ?></span>
+
+                            <div class="timeline-track mt-4">
+                                <?php while ($itin = sqlsrv_fetch_array($stmt_itin, SQLSRV_FETCH_ASSOC)) {
+                                    // 1. LOGIC: Check if this row is the "Summit"
+                                    // stripos is used to check specifically for the word "Summit" (case-insensitive)
+                                    $isSummit = (stripos($itin['ACTIVITY_DESC'], 'Summit') !== false);
+
+                                    // 2. LOGIC: Set the class variable if true
+                                    $specialClass = $isSummit ? 'summit-row' : '';
+                                    ?>
+
+                                    <div class="timeline-row <?php echo $specialClass; ?>">
+                                        <div class="time-col">
+                                            <span class="time-display"><?php echo $itin['TIME_MARKER']; ?></span>
+                                        </div>
+
+                                        <div class="track-col">
+                                            <div class="track-line"></div>
+                                            <div class="track-dot"></div>
+                                        </div>
+
+                                        <div class="activity-col">
+                                            <div class="activity-box">
+                                                <?php if ($isSummit) { ?>
+                                                    <i class="fa-solid fa-flag text-warning me-2"></i>
+                                                <?php } ?>
+
+                                                <?php echo $itin['ACTIVITY_DESC']; ?>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 <?php } ?>
                             </div>
+
                         </div>
                     </div>
 
                 </div>
 
-
-                <div class="col-lg-4 sticky-sidebar">
+                <!-- sidebar booking card -->
+                <div class="col-lg-4 sticky-sidebar d-none d-lg-block">
                     <div class="card booking-card p-4">
                         <div class="text-center mb-3">
                             <small class="text-secondary text-uppercase ls-2">Price per Person</small>
@@ -429,79 +302,80 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
     </main>
 
     <!-- footer section -->
-        <footer class="footer mt-auto py-5 text-white" style="background-color: #1a1a1a;">
-            <div class="container">
-                <div class="row">
+    <footer class="footer mt-auto py-5 text-white" style="background-color: #1a1a1a;">
+        <div class="container">
+            <div class="row">
 
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5 class="mb-3">
-                            <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
-                        </h5>
-                        <p class="text-secondary small">
-                            Your trusted guide to exploring the most majestic peaks and hidden trails across the
-                            Philippines. Safety, sustainability, and adventure.
-                        </p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5 class="text-success mb-3">Quick Links</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><a href="tours.html" class="text-white text-decoration-none small">All
-                                    Tours & Expeditions</a></li>
-                            <li class="mb-2"><a href="about.html" class="text-white text-decoration-none small">About
-                                    Us</a></li>
-                            <li class="mb-2"><a href="faqs.html" class="text-white text-decoration-none small">FAQ &
-                                    Preparation</a></li>
-                            <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none small">Adventure
-                                    Blog</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5 class="text-success mb-3">Get in Touch</h5>
-                        <ul class="list-unstyled text-secondary small">
-                            <li class="mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@mountpinoy.ph</li>
-                            <li class="mb-2"><i class="fas fa-phone me-2 text-warning"></i> +63 923 417 5772</li>
-                            <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Carmona, Cavite,
-                                Philippines</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5 class="text-success mb-3">Connect</h5>
-                        <a href="https://www.facebook.com/armin.derosas.18" class="text-white me-3"><i
-                                class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="https://www.instagram.com/arminicus18/" class="text-white me-3"><i
-                                class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.youtube.com/@arminderosas9461" class="text-white me-3"><i
-                                class="fab fa-youtube fa-lg"></i></a>
-
-                        <p class="text-secondary mt-3 small">Subscribe for early bird specials.</p>
-                        <form>
-                            <div class="input-group">
-                                <input type="email" class="form-control form-control-sm" placeholder="Your Email"
-                                    aria-label="Email for newsletter">
-                                <button class="btn btn-warning btn-sm" type="submit">Go</button>
-                            </div>
-                        </form>
-                    </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">
+                        <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+                    </h5>
+                    <p class="text-secondary small">
+                        Your trusted guide to exploring the most majestic peaks and hidden trails across the
+                        Philippines. Safety, sustainability, and adventure.
+                    </p>
                 </div>
 
-                <hr class="border-secondary">
-                <div class="row">
-                    <div class="col-12 text-center small text-secondary pt-3">
-                        &copy; 2025 MountPinoy Expeditions. All rights reserved. | <a href="#"
-                            class="text-warning text-decoration-none">DE ROSAS ARMIN CPE41</a>
-                    </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="tours.html" class="text-white text-decoration-none small">All
+                                Tours & Expeditions</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none small">About
+                                Us</a></li>
+                        <li class="mb-2"><a href="faqs.html" class="text-white text-decoration-none small">FAQ &
+                                Preparation</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none small">Adventure
+                                Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Get in Touch</h5>
+                    <ul class="list-unstyled text-secondary small">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@mountpinoy.ph</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-warning"></i> +63 923 417 5772</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Carmona, Cavite,
+                            Philippines</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Connect</h5>
+                    <a href="https://www.facebook.com/armin.derosas.18" class="text-white me-3"><i
+                            class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="https://www.instagram.com/arminicus18/" class="text-white me-3"><i
+                            class="fab fa-instagram fa-lg"></i></a>
+                    <a href="https://www.youtube.com/@arminderosas9461" class="text-white me-3"><i
+                            class="fab fa-youtube fa-lg"></i></a>
+
+                    <p class="text-secondary mt-3 small">Subscribe for early bird specials.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-sm" placeholder="Your Email"
+                                aria-label="Email for newsletter">
+                            <button class="btn btn-warning btn-sm" type="submit">Go</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </footer>
+
+            <hr class="border-secondary">
+            <div class="row">
+                <div class="col-12 text-center small text-secondary pt-3">
+                    &copy; 2025 MountPinoy Expeditions. All rights reserved. | <a href="#"
+                        class="text-warning text-decoration-none">DE ROSAS ARMIN CPE41</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- modal for saving or booking the tour -->
     <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
@@ -529,6 +403,19 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <!-- mobile bottom booking bar -->
+    <div class="d-lg-none fixed-bottom bg-dark border-top border-secondary p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <small class="text-secondary text-uppercase" style="font-size: 0.7rem;">Price per person</small>
+                <h4 class="text-white m-0 fw-bold">₱<?php echo number_format($tour['PRICE']); ?></h4>
+            </div>
+            <button class="btn btn-warning fw-bold px-4" data-bs-toggle="modal" data-bs-target="#loginPromptModal">
+                Book Now
+            </button>
         </div>
     </div>
 

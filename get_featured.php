@@ -16,7 +16,7 @@ if ($conn === false) {
 }
 
 // 2. FETCH ACTIVE TOURS
-$sql = "SELECT * FROM TOURS_7 WHERE IS_ACTIVE = 1 AND CATEGORY IN ('Hike')";
+$sql = "SELECT * FROM TOURS_7 WHERE IS_ACTIVE = 1 AND CATEGORY IN ('Hike') AND RATING >= 4.6 ORDER BY RATING DESC";
 $stmt = sqlsrv_query($conn, $sql);
 
 if ($stmt === false) {
