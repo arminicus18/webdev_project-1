@@ -480,8 +480,6 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                     <div class="d-grid gap-3">
                         <button class="btn btn-outline-light py-2" type="button"><i
                                 class="fa-brands fa-google me-2"></i> Google</button>
-                        <button class="btn btn-outline-light py-2" type="button"><i
-                                class="fa-brands fa-facebook me-2"></i> Facebook</button>
                         <button class="btn text-white py-2 fw-bold mt-2" style="background-color: #4CAF50;"
                             type="button">Log In with Email</button>
                     </div>
