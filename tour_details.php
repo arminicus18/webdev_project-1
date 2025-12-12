@@ -86,7 +86,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
 </head>
 
 <body>
-    <!-- navbar section -->
+    <!-- navbarr -->
     <nav class="fixed-top navbar navbar-expand-lg navbar-custom navbar-dark">
         <div class="container-lg container-md">
             <div class="row">
@@ -172,12 +172,13 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
             </div>
         </header>
 
+        <!-- full description of tour -->
         <div class="container pb-5">
             <div class="row">
 
+                <!-- main view -->
                 <div class="col-lg-8">
-
-                    <!-- description -->
+                    <!-- long description of tour -->
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-solid fa-mountain-sun me-2"></i> About this Adventure
@@ -192,7 +193,6 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-solid fa-check-double me-2"></i> What's Included</h3>
-
                             <div class="inclusions-grid mt-3">
                                 <?php while ($inc = sqlsrv_fetch_array($stmt_inc, SQLSRV_FETCH_ASSOC)) { ?>
 
@@ -207,7 +207,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     </div>
 
-                    <!-- location -->
+                    <!-- gmaps section -->
                     <?php if (!empty($details['GMAPS_LOC'])) { ?>
                         <div class="card shadow-sm">
                             <div class="card-body p-4">
@@ -219,7 +219,48 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     <?php } ?>
 
-                    <!-- itinerary section -->
+                    <!-- images carousel -->
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body p-0 overflow-hidden rounded">
+
+                            <div id="tourGalleryCarousel" class="carousel slide" data-bs-ride="carousel"
+                                data-bs-interval="2000" data-name="<?php echo $tour['TOUR_NAME']; ?>"
+                                data-location="<?php echo $tour['LOCATION']; ?>">
+                                <?php if (isset($tour['GALLERY_QUERY'])) { ?>
+                                    data-custom-search="<?php echo $tour['GALLERY_QUERY']; ?>"
+                                <?php } ?>
+
+                                <div class="carousel-indicators" id="carousel-indicators">
+                                </div>
+
+                                <div class="carousel-inner" id="gallery-container">
+                                    <div class="carousel-item active" style="height: 400px; background: #111;">
+                                        <div class="d-flex justify-content-center align-items-center h-100">
+                                            <div class="spinner-border text-warning" role="status"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#tourGalleryCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#tourGalleryCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="card-footer bg-dark border-top border-secondary py-2">
+                            <small class="text-warning"><i class="fa-solid fa-camera-retro me-2"></i>From Previous
+                                Joiners</small>
+                        </div>
+                    </div>
+
+                    <!-- itenerary section -->
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-regular fa-clock me-2"></i> Itinerary</h3>
@@ -227,7 +268,6 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                             <div class="timeline-track mt-4">
                                 <?php while ($itin = sqlsrv_fetch_array($stmt_itin, SQLSRV_FETCH_ASSOC)) {
                                     // 1. LOGIC: Check if this row is the "Summit"
-                                    // stripos is used to check specifically for the word "Summit" (case-insensitive)
                                     $isSummit = (stripos($itin['ACTIVITY_DESC'], 'Summit') !== false);
 
                                     // 2. LOGIC: Set the class variable if true
@@ -261,54 +301,98 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     </div>
 
+                    <!-- video section -->
+                    <?php if (!empty($details['YT_LINK'])) { ?>
+                        <div class="card shadow-sm mt-4">
+                            <div class="card-body p-4">
+                                <h3 class="card-title"><i class="fa-brands fa-youtube me-2"></i> Video Tour</h3>
+
+                                <div class="ratio ratio-16x9 mt-3">
+                                    <?php echo $details['YT_LINK']; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+
                 </div>
 
-                <!-- sidebar booking card -->
-                <div class="col-lg-4 sticky-sidebar d-none d-lg-block">
-                    <div class="card booking-card p-4">
-                        <div class="text-center mb-3">
-                            <small class="text-secondary text-uppercase ls-2">Price per Person</small>
-                            <h2 class="text-white fw-bold display-4 mt-2">
-                                ₱<?php echo number_format($tour['PRICE'], 2); ?></h2>
+                <!-- sticky sidebar -->
+                <aside class="col-lg-4 d-none d-lg-block">
+                    <div class="sticky-sidebar">
+
+                        <div class="card shadow-sm mb-4 border-warning" id="weather-card" style="display: none;">
+                            <div class="card-body p-3">
+                                <h5 class="card-title text-warning mb-3">
+                                    <i class="fa-solid fa-cloud-sun-rain me-2"></i> Weather Forecast
+                                </h5>
+
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img id="w-icon" src="" alt="Weather Icon" style="width: 50px; height: 50px;">
+                                        <div class="ms-2">
+                                            <h2 class="mb-0 fw-bold text-white" id="w-temp">--°C</h2>
+                                            <small class="text-secondary" id="w-text">Loading...</small>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="d-block text-secondary">Chance of Rain</small>
+                                        <strong class="text-info" id="w-rain">--%</strong>
+                                    </div>
+                                </div>
+
+                                <div class="weather-forecast bg-dark rounded p-2">
+                                    <div class="row text-center g-0" id="forecast-container">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <hr style="border-color: #444;">
+                        <div class="card booking-card p-4">
+                            <div class="text-center mb-3">
+                                <small class="text-secondary text-uppercase ls-2">Price per Person</small>
+                                <h2 class="text-white fw-bold display-4 mt-2">
+                                    ₱<?php echo number_format($tour['PRICE'], 2); ?></h2>
+                            </div>
 
-                        <div class="mb-3">
-                            <strong class="text-warning"><i class="fa-solid fa-location-arrow"></i> Meeting
-                                Point:</strong><br>
-                            <span class="text-light ms-3 d-block mt-1">
-                                <?php echo isset($details['MEETING_POINT']) ? $details['MEETING_POINT'] : "To Be Announced"; ?>
-                            </span>
+                            <hr style="border-color: #444;">
+
+                            <div class="mb-3">
+                                <strong class="text-warning"><i class="fa-solid fa-location-arrow"></i> Meeting
+                                    Point:</strong><br>
+                                <span class="text-light ms-3 d-block mt-1">
+                                    <?php echo isset($details['MEETING_POINT']) ? $details['MEETING_POINT'] : "To Be Announced"; ?>
+                                </span>
+                            </div>
+
+                            <div class="mb-4">
+                                <strong class="text-warning"><i class="fa-solid fa-triangle-exclamation"></i> Important
+                                    Note:</strong><br>
+                                <small class="text-light ms-3 d-block mt-1 fst-italic">
+                                    <?php echo isset($details['NOTES']) ? $details['NOTES'] : "Standard hiking safety protocols apply."; ?>
+                                </small>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-warning btn-lg fw-bold py-3" data-bs-toggle="modal"
+                                    data-bs-target="#loginPromptModal">
+                                    Book This Tour
+                                </button>
+                                <button class="btn btn-outline-light" data-bs-toggle="modal"
+                                    data-bs-target="#loginPromptModal">
+                                    <i class="fa-regular fa-heart"></i> Add to Wishlist
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="mb-4">
-                            <strong class="text-warning"><i class="fa-solid fa-triangle-exclamation"></i> Important
-                                Note:</strong><br>
-                            <small class="text-light ms-3 d-block mt-1 fst-italic">
-                                <?php echo isset($details['NOTES']) ? $details['NOTES'] : "Standard hiking safety protocols apply."; ?>
-                            </small>
-                        </div>
 
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-warning btn-lg fw-bold py-3" data-bs-toggle="modal"
-                                data-bs-target="#loginPromptModal">
-                                Book This Tour
-                            </button>
-                            <button class="btn btn-outline-light" data-bs-toggle="modal"
-                                data-bs-target="#loginPromptModal">
-                                <i class="fa-regular fa-heart"></i> Add to Wishlist
-                            </button>
-                        </div>
                     </div>
-                </div>
+                </aside>
 
             </div>
         </div>
 
     </main>
 
-    <!-- footer section -->
     <footer class="footer mt-auto py-5 text-white" style="background-color: #1a1a1a;">
         <div class="container">
             <div class="row">
@@ -377,7 +461,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
         </div>
     </footer>
 
-    <!-- modal for saving or booking the tour -->
+    <!-- modal for booking BUT NO ACCOUNT -->
     <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content custom-dark-modal" style="background-color: #1e1e1e; border: 1px solid #333;">
@@ -405,17 +489,30 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
             </div>
         </div>
     </div>
-    
-    <!-- mobile bottom booking bar -->
-    <div class="d-lg-none fixed-bottom bg-dark border-top border-secondary p-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div>
-                <small class="text-secondary text-uppercase" style="font-size: 0.7rem;">Price per person</small>
-                <h4 class="text-white m-0 fw-bold">₱<?php echo number_format($tour['PRICE']); ?></h4>
+
+    <!-- bottom bar for mobile BOOKING -->
+    <div class="d-lg-none fixed-bottom bg-dark border-top border-secondary p-2 shadow-lg" style="z-index: 1050;">
+        <div class="container">
+
+            <div class="d-flex align-items-center justify-content-center mb-2 py-1 rounded bg-secondary bg-opacity-25"
+                id="mobile-weather-row" style="display: none !important;">
+                <img id="mw-icon" src="" alt="" style="width: 24px; height: 24px; margin-right: 8px;">
+                <span id="mw-text" class="text-warning small me-2" style="font-size: 0.8rem;">Loading...</span>
+                <span class="text-white fw-bold small" id="mw-temp">--°C</span>
             </div>
-            <button class="btn btn-warning fw-bold px-4" data-bs-toggle="modal" data-bs-target="#loginPromptModal">
-                Book Now
-            </button>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <small class="text-secondary text-uppercase d-block"
+                        style="font-size: 0.65rem; line-height: 1;">Price per person</small>
+                    <h4 class="text-white m-0 fw-bold">₱<?php echo number_format($tour['PRICE']); ?></h4>
+                </div>
+                <button class="btn btn-warning fw-bold px-4 py-2" data-bs-toggle="modal"
+                    data-bs-target="#loginPromptModal">
+                    Book Now
+                </button>
+            </div>
+
         </div>
     </div>
 
@@ -423,6 +520,8 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="navbar.js"></script>
+    <script src="service_gallery.js"></script>
+    <script src="service_weather.js"></script>
 
 </body>
 

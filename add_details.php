@@ -18,14 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // A. INSERT MAIN DETAILS
     // Updated to match your specific column names (DESCRIPTION, GMAPS_LOC)
-    $sql_details = "INSERT INTO DETAILS_1 (DESCRIPTION, GMAPS_LOC, TOUR_ID, MEETING_POINT, NOTES) 
-                    VALUES (?, ?, ?, ?, ?)";
+    $sql_details = "INSERT INTO DETAILS_1 (DESCRIPTION, GMAPS_LOC, TOUR_ID, MEETING_POINT, NOTES, YT_LINK) 
+                    VALUES (?, ?, ?, ?, ?, ?)";
     $params_details = array( 
         $_POST['LONG_DESCRIPTION'], 
         $_POST['MAP_EMBED_CODE'],
         $tour_id,
         $_POST['MEETING_POINT'],
-        $_POST['NOTES']
+        $_POST['NOTES'],
+        $_POST['YT_LINK']
     );
     $stmt1 = sqlsrv_query($conn, $sql_details, $params_details);
 
@@ -123,6 +124,10 @@ $result_tours = sqlsrv_query($conn, $sql_get_tours);
         <label>Google Maps Embed Code:</label>
         <div class="hint">Go to Google Maps -> Share -> Embed a Map -> Copy HTML</div>
         <input type="text" name="MAP_EMBED_CODE" placeholder='<iframe src="..."></iframe>'>
+
+        <label>YouTube Video Embed Code:</label>
+        <div class="hint">Go to YouTube -> Share -> Embed -> Copy HTML (remove width/height if you want)</div>
+        <input type="text" name="YT_LINK" placeholder='<iframe src="..."></iframe>'>
 
         <label>Meeting Point Address:</label>
         <input type="text" name="MEETING_POINT" placeholder="e.g. McDonald's Greenfield District">
