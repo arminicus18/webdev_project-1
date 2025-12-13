@@ -95,7 +95,7 @@
             </div>
         </header>
 
-        
+
         <div class="container mb-5">
 
             <div class="section-header">
@@ -146,6 +146,20 @@
                 </div>
             </div>
             <div id="expert-row" class="scrolling-wrapper"></div>
+
+
+            <div class="section-header">
+                <h3 class="fw-bold text-white">Beach & Other Adventures</h3>
+                <div>
+                    <button class="nav-btn" onclick="window.scrollRow('others-row', -1)">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn" onclick="window.scrollRow('others-row', 1)">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="others-row" class="scrolling-wrapper"></div>
 
         </div>
 
@@ -263,6 +277,7 @@
 
 
     <script src="tours_display.js"></script>
+    <script src="tours_other.js"></script>
 
 
 </body>

@@ -11,12 +11,14 @@ function loadAllTours() {
             const intermediate = data.filter(t => t.CLASS === 'Intermediate');
             const advanced = data.filter(t => t.CLASS === 'Advance');
             const expert = data.filter(t => t.CLASS === 'Expert');
+            
 
             // Inject into rows
             renderRow('beginner-row', beginners);
             renderRow('intermediate-row', intermediate);
             renderRow('advanced-row', advanced);
             renderRow('expert-row', expert);
+
         })
         .catch(err => console.error(err));
 }
