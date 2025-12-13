@@ -96,8 +96,10 @@
         </header>
 
 
+        <!-- epic games like nav -->
         <div class="container mb-5">
 
+            <!-- beginner -->
             <div class="section-header">
                 <h3 class="fw-bold text-white">Beginner Friendly Hikes</h3>
                 <div>
@@ -111,7 +113,7 @@
                 <p class="text-secondary ms-2"></p>
             </div>
 
-
+            <!-- intermediate -->
             <div class="section-header">
                 <h3 class="fw-bold text-white">Intermediate Hikes for Experienced</h3>
                 <div>
@@ -123,7 +125,7 @@
             </div>
             <div id="intermediate-row" class="scrolling-wrapper"></div>
 
-
+            <!-- advance -->
             <div class="section-header">
                 <h3 class="fw-bold text-white">Advanced Hikes for Thrill</h3>
                 <div>
@@ -135,7 +137,7 @@
             </div>
             <div id="advanced-row" class="scrolling-wrapper"></div>
 
-
+            <!-- expert -->
             <div class="section-header">
                 <h3 class="fw-bold text-white">Expert Hikes for Paramount Adventures</h3>
                 <div>
@@ -147,7 +149,7 @@
             </div>
             <div id="expert-row" class="scrolling-wrapper"></div>
 
-
+            <!-- beach and others -->
             <div class="section-header">
                 <h3 class="fw-bold text-white">Beach & Other Adventures</h3>
                 <div>
@@ -160,6 +162,34 @@
                 </div>
             </div>
             <div id="others-row" class="scrolling-wrapper"></div>
+
+            <!-- by Luzon, Visayas, Mindanao -->
+            <hr class="border-secondary my-5">
+
+            <div class="container mb-5">
+                <hr class="border-secondary my-5">
+
+                <div class="d-flex flex-column align-items-center mb-5">
+                    <h3 class="fw-bold text-white mb-4">Explore by Region</h3>
+                    
+                    <ul class="nav nav-pills" id="island-pills">
+                        <li class="nav-item">
+                            <a class="nav-link island-pill active" href="#">Luzon</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link island-pill" href="#">Visayas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link island-pill" href="#">Mindanao</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="island-grid-container" class="row g-3">
+                    <p class="text-center text-secondary">Loading tours...</p>
+                </div>
+
+            </div>
 
         </div>
 
@@ -278,6 +308,7 @@
 
     <script src="tours_display.js"></script>
     <script src="tours_other.js"></script>
+    <script src="tours_island.js"></script>
 
 
 </body>
