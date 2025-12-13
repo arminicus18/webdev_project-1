@@ -1,5 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
     loadAllTours();
+
+    // Check for URL Hash and Scroll to Center ---
+    if (window.location.hash) {
+        // Remove the '#' character to get the ID
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            // Wait a tiny bit to ensure page layout is ready
+            setTimeout(() => {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' // This forces the element to the middle of the screen
+                });
+            }, 100); 
+        }
+    }
+
 });
 
 function loadAllTours() {

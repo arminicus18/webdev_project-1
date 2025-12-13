@@ -2,18 +2,39 @@ let allTourData = [];
 let currentIslandStr = 'Luzon';
 
 document.addEventListener("DOMContentLoaded", () => {
+    // 1. CHECK URL PARAMETER
+    // This grabs 'Visayas' from 'tours.html?region=Visayas'
+    const params = new URLSearchParams(window.location.search);
+    const regionParam = params.get('region');
+
+    // If the URL has a valid region, override the default 'Luzon'
+    if (regionParam && ['Luzon', 'Visayas', 'Mindanao'].includes(regionParam)) {
+        currentIslandStr = regionParam;
+    }
+
+    // 2. FETCH DATA
+    // This will now use the correct region immediately
     fetchAllToursForIslands();
 
-    // Navpill Click Logic
+    // 3. SETUP NAVPILLS & SET ACTIVE STATE
     const islandPills = document.querySelectorAll('.island-pill');
     islandPills.forEach(pill => {
+
+        // VISUAL FIX: Ensure the correct pill is highlighted on load
+        if (pill.textContent.trim() === currentIslandStr) {
+            pill.classList.add('active');
+        } else {
+            pill.classList.remove('active');
+        }
+
+        // Add Click Listener
         pill.addEventListener('click', (e) => {
             e.preventDefault();
-            // 1. Visual Update
+            // Visual Update
             islandPills.forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
 
-            // 2. Logic Update
+            // Logic Update
             currentIslandStr = pill.textContent.trim();
             renderIslandGrid();
         });
