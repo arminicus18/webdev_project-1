@@ -1,72 +1,144 @@
 body {
-    /* background-color: white; */
-    /* background-image: url('branding/DSC02959-Edit(resize).jpg'); */
     background-color: #2c2c2c;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* Matches your homepage */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* ================== HERO SECTION ================== */
 .tours-hero {
-    /* You can change this image path later */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/hero_bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('branding/mt-kabunian.jpg');
+    /* UPDATE THIS IMAGE PATH IF NEEDED */
     background-size: cover;
     background-position: center;
-    padding: 80px 0 60px 0;
-    text-align: center;
-    border-bottom: 2px solid #ffc107;
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #333;
 }
 
-/* FILTER PILLS */
-.filter-pill {
-    border: 1px solid #444;
-    background-color: #1e1e1e;
-    color: #aaa;
-    border-radius: 50px;
-    padding: 8px 20px;
-    margin: 0 5px;
-    transition: all 0.3s;
-    text-decoration: none;
+/* ================== HORIZONTAL SCROLLING ROWS ================== */
+.scrolling-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    /* Hide scrollbar IE/Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
+}
+
+/* Force cards to be inline-block so they sit side-by-side */
+.scrolling-wrapper .col-lg-4 {
     display: inline-block;
+    float: none;
+    vertical-align: top;
+    white-space: normal;
+    /* Allow text inside card to wrap normally */
+    width: 400px;
+    /* Fixed width for consistency */
+    margin-right: 15px;
+}
+
+/* ================== SECTION HEADERS & NAV BUTTONS ================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background: #333;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: #ffc107;
+    color: black;
+}
+
+/* ================== CARD DESIGN ================== */
+.card-custom {
+    background-color: #1c1c1c;
+    border-radius: 30px;
+    overflow: hidden;
+    /* Crucial for rounding the image corners */
+    height: 100%;
+    /* Makes all cards in the row the same height */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
-.filter-pill:hover,
-.filter-pill.active {
-    background-color: #ffc107;
-    color: #000;
-    border-color: #ffc107;
-    font-weight: bold;
+/* Price Glow Effect on Hover */
+.card-custom:hover .price-amount {
+    text-shadow: 0 0 8px #ffc107, 0 0 15px rgba(255, 193, 7, 0.5);
+    color: #f5dc92;
 }
 
-/* CARD STYLES */
-.tour-card-lg {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    height: 100%;
-}
-
-.tour-card-lg:hover {
-    transform: translateY(-5px);
-    border-color: #ffc107;
-    box-shadow: 0 10px 20px rgba(255, 193, 7, 0.15);
-}
-
-.card-img-lg {
-    height: 250px;
-    /* Taller image for the larger card */
+.card-img-top {
+    height: 200px;
     object-fit: cover;
-    width: 100%;
 }
 
-.card-meta {
-    font-size: 0.9rem;
-    color: #ccc;
-    border-top: 1px solid #333;
-    padding-top: 10px;
-    margin-top: 10px;
+/* ================== BOOKMARK BUTTON ================== */
+.btn-bookmark {
+    background-color: #ffc107;
+    color: #212529;
+    width: 35px;
+    height: 35px;
+    border: none;
+    z-index: 2;
+    /* Above the stretched link */
+    transition: all 0.2s;
+}
+
+.btn-bookmark:hover {
+    background-color: #e0a800;
+}
+
+/* ================== INCLUSIONS & TAGS ================== */
+.inclusions-list {
+    font-size: 0.85rem;
+    color: #adb5bd;
+}
+
+.inclusions-list div {
+    margin-bottom: 3px;
+}
+
+.location-tag {
+    /* Custom light green badge style */
+    background-color: #d8d8d8;
+    color: #003930;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
 }

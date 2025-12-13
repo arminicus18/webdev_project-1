@@ -76,9 +76,9 @@ function renderRow(containerId, tours) {
                             <span class="text-secondary ms-1">(${tour.REVIEWS})</span>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="price-display mb-3">
                             <small class="text-secondary">from</small> 
-                            <span class="text-warning fw-bold fs-5">₱ ${parseFloat(tour.PRICE).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span> 
+                            <span class="price-amount text-warning fw-bold fs-5">₱ ${parseFloat(tour.PRICE).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span> 
                             <small class="text-secondary">per person</small>
                         </div>
 

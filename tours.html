@@ -27,150 +27,8 @@
     <script defer src="mountpinoy.js"></script>
     <script src="navbar.js"></script>
     <script src="bookmark.js"></script>
-    <script src="tours_display.js"></script>
 
-    <style>
-        body {
-            background-color: #2c2c2c;
-            /* Matches your homepage */
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
 
-        /* 1. HERO SECTION */
-        .tours-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('images/hero_bg.jpg');
-            /* UPDATE THIS IMAGE */
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 50px;
-            border-bottom: 1px solid #333;
-        }
-
-        /* 2. HORIZONTAL SCROLLING ROWS (The "Epic Games" Logic) */
-        .scrolling-wrapper {
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            padding-bottom: 20px;
-            scroll-behavior: smooth;
-            -ms-overflow-style: none;
-            /* Hide scrollbar IE/Edge */
-            scrollbar-width: none;
-            /* Hide scrollbar Firefox */
-        }
-
-        .scrolling-wrapper::-webkit-scrollbar {
-            display: none;
-            /* Hide scrollbar Chrome/Safari */
-        }
-
-        /* Force cards to be inline-block so they sit side-by-side */
-        .scrolling-wrapper .col-lg-4 {
-            display: inline-block;
-            float: none;
-            vertical-align: top;
-            white-space: normal;
-            /* Allow text inside card to wrap normally */
-            width: 400px;
-            /* Fixed width for consistency */
-            margin-right: 15px;
-        }
-
-        /* 3. SECTION HEADERS */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-
-        .nav-btn {
-            background: #333;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .nav-btn:hover {
-            background: #ffc107;
-            color: black;
-        }
-
-        /* 4. CARD TWEAKS (Matches your Homepage + Taller) */
-        .card-custom {
-            background-color: #1c1c1c;
-            border-radius: 30px;
-            overflow: hidden;
-            /* Crucial for rounding the image corners */
-            height: 100%;
-            /* Makes all cards in the row the same height */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow like the example */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-custom:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
-
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        /* BOOKMARK BUTTON */
-        .btn-bookmark {
-            background-color: #ffc107;
-            color: #212529;
-            width: 35px;
-            height: 35px;
-            border: none;
-            z-index: 2;
-            /* Above the stretched link */
-            transition: all 0.2s;
-        }
-
-        .btn-bookmark:hover {
-            background-color: #e0a800;
-        }
-
-        /* INCLUSIONS LIST */
-        .inclusions-list {
-            font-size: 0.85rem;
-            color: #adb5bd;
-        }
-
-        .inclusions-list div {
-            margin-bottom: 3px;
-        }
-
-        .location-tag {
-            /* Custom light green badge style */
-            background-color: #d8d8d8;
-            /* Light green background */
-            color: #003930;
-            /* Dark green text */
-            font-size: 0.8rem;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-    </style>
 
 </head>
 
@@ -225,15 +83,19 @@
     </nav>
 
     <main>
+        <!-- top adventure -->
         <header class="tours-hero">
             <div class="container">
                 <span class="badge bg-warning text-dark mb-2">FEATURED ADVENTURE</span>
                 <h1 class="display-3 fw-bold text-white">Mt. Kabunian Day Hike</h1>
                 <p class="text-light">Experience the home of the gods in Bakun, Benguet.</p>
-                <button class="btn btn-warning fw-bold px-4 rounded-pill">View Details</button>
+                <a href="tour_details.php?id=118">
+                    <button class="btn btn-warning fw-bold px-4 rounded-pill">View Details</button>
+                </a>
             </div>
         </header>
 
+        
         <div class="container mb-5">
 
             <div class="section-header">
