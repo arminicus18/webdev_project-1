@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $PRICE = $_POST['PRICE'];
         $DURATION = $_POST['DURATION'];
         $ISLAND = $_POST['ISLAND'];
+        $IS_ACTIVE = $_POST['IS_ACTIVE'];
         $MASL = $_POST['MASL'];
         
         // Handle Checkbox
