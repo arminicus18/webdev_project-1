@@ -20,7 +20,8 @@ if ($conn === false) {
 $sql = "SELECT 
             T.TOUR_ID, 
             T.TOUR_NAME, 
-            T.LOCATION, 
+            T.LOCATION,
+            T.DIFFICULTY, 
             T.RATING, 
             T.REVIEWS, 
             T.PRICE, 

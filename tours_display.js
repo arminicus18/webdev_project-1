@@ -84,6 +84,7 @@ function renderRow(containerId, tours) {
                 <div class="card card-custom h-100">
                     <div style="position: relative; height: 220px;">
                         <img src="${tour.IMAGE_URL}" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="${tour.TOUR_NAME}">
+                        ${tour.DIFFICULTY ? `<div class="difficulty-badge-corner">${tour.DIFFICULTY}/9</div>` : ''}
                     </div>
 
                     <div class="card-body p-4">
