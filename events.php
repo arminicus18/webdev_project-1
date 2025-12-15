@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -44,22 +49,22 @@
 
                 <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
                     <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size" href="index.html">
+                        <a class="nav-link navbar-text navbar-font-size" href="index.php">
                             <i class="fa-regular fa-house fa-lg nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size" href="tours.html">
+                        <a class="nav-link navbar-text navbar-font-size" href="tours.php">
                             <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size" href="events.html">
+                        <a class="nav-link navbar-text navbar-font-size active" href="events.php">
                             <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size" href="tips.html">
+                        <a class="nav-link navbar-text navbar-font-size" href="tips.php">
                             <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
                         </a>
                     </li>
@@ -74,9 +79,11 @@
                         </button>
                     </form>
 
-                    <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=894735970360-ffmjspg7espidrlnv8addt1r1d7tiuam.apps.googleusercontent.com&redirect_uri=http://localhost/final_project/google_callback.php&scope=email%20profile&access_type=online"
-                        class="btn btn-login">
-                        Login
+                    <img src="<?php echo $_SESSION['user_picture']; ?>" alt="Profile" class="rounded-circle"
+                        style="width: 35px; height: 35px; border: 2px solid #FFC107;">
+
+                    <a href="logout.php" class="btn btn-danger btn-sm rounded-pill px-3">
+                        Logout
                     </a>
                 </div>
             </div>
