@@ -189,7 +189,7 @@ if (!isset($_SESSION['user_name'])) {
                                     long, high-altitude climbs,
                                     cold weather, and pine forest environments. Challenges include exposure and
                                     distance.</p>
-                                <a href="tours.html?region=Luzon#discover-region"
+                                <a href="tours.php?region=Luzon#discover-region"
                                     class="btn btn-climb btn-card-details">Explore</a>
                             </div>
                         </div>
@@ -203,7 +203,7 @@ if (!isset($_SESSION['user_name'])) {
                                 <p class="card-text">Trails here are typically characterized by shorter, steeper
                                     ascents, active limestone formations,
                                     and dense tropical rainforests. Expect rocky paths and high humidity.</p>
-                                <a href="tours.html?region=Visayas#discover-region"
+                                <a href="tours.php?region=Visayas#discover-region"
                                     class="btn btn-climb btn-card-details">Explore</a>
                             </div>
                         </div>
@@ -217,7 +217,7 @@ if (!isset($_SESSION['user_name'])) {
                                 <p class="card-text">The south offers rugged, remote trails through mossy
                                     forests, volcanic terrain and include dense jungle navigation, and multi-day,
                                     self-sufficient treks.</p>
-                                <a href="tours.html?region=Mindanao#discover-region"
+                                <a href="tours.php?region=Mindanao#discover-region"
                                     class="btn btn-climb btn-card-details">Explore</a>
                             </div>
                         </div>
@@ -251,7 +251,7 @@ if (!isset($_SESSION['user_name'])) {
                             <p class="card-text-horizontal">Perfect for first-timers and families. Features
                                 well-established trails, minimal
                                 elevation gain, and short duration (3-5 hours).</p>
-                            <a href="tours.html#beginner-section" class="btn skill-btn">Find Beginner Hikes</a>
+                            <a href="tours.php#beginner-section" class="btn skill-btn">Find Beginner Hikes</a>
                         </div>
                     </div>
 
@@ -268,7 +268,7 @@ if (!isset($_SESSION['user_name'])) {
                             <p class="card-text-horizontal">Suitable for those with basic fitness and a few day-hike
                                 experiences. Expect moderate
                                 elevation changes and mixed terrain.</p>
-                            <a href="tours.html#intermediate-section" class="btn skill-btn">Find Intermediate Hikes</a>
+                            <a href="tours.php#intermediate-section" class="btn skill-btn">Find Intermediate Hikes</a>
                         </div>
                     </div>
 
@@ -285,7 +285,7 @@ if (!isset($_SESSION['user_name'])) {
                             <p class="card-text-horizontal">For experienced hikers. Steep climbs, muddy paths, and
                                 breathtaking summit views await!
                             </p>
-                            <a href="tours.html#advance-section" class="btn skill-btn">Find Advanced Treks</a>
+                            <a href="tours.php#advance-section" class="btn skill-btn">Find Advanced Treks</a>
                         </div>
                     </div>
 
@@ -302,7 +302,7 @@ if (!isset($_SESSION['user_name'])) {
                             <p class="card-text-horizontal">For seasoned mountaineers ready for multi-day expeditions
                                 with technical climbs and
                                 remote trails.</p>
-                            <a href="tours.html#expert-section" class="btn skill-btn">Find Expert Treks</a>
+                            <a href="tours.php#expert-section" class="btn skill-btn">Find Expert Treks</a>
                         </div>
                     </div>
                 </div>
@@ -739,7 +739,7 @@ if (!isset($_SESSION['user_name'])) {
 
 
 
-
+    <?php include 'wishlist_float.php'; ?>
 
     <script src="navbar.js"></script>
 

@@ -515,31 +515,37 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
     </footer>
 
     <!-- modal for booking BUT NO ACCOUNT -->
-    <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content custom-dark-modal" style="background-color: #1e1e1e; border: 1px solid #333;">
-                <div class="modal-header border-0 pb-0">
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center px-4 pb-4">
-                    <div class="mb-3" style="color: #FFC107;">
-                        <i class="fa-solid fa-bookmark fa-3x"></i>
+    <?php if (!isset($_SESSION['user_name'])): ?>
+
+        <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content custom-dark-modal" style="background-color: #1e1e1e; border: 1px solid #333;">
+                    <div class="modal-header border-0 pb-0">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
-                    <h4 class="modal-title fw-bold mb-3 text-white">Save your adventure!</h4>
-                    <p class="small mb-4" style="color: #bbb;">
-                        Sign in to book this hike or save it to your wishlist.
-                    </p>
-                    <div class="d-grid gap-3">
-                        <button class="btn text-white py-2 fw-bold mt-2"
-                            style="background-color: #4CAF50; border: none;" type="button">
-                            <i class="fa-brands fa-google me-2"></i> Continue with google
-                        </button>
+                    <div class="modal-body text-center px-4 pb-4">
+                        <div class="mb-3" style="color: #FFC107;">
+                            <i class="fa-solid fa-bookmark fa-3x"></i>
+                        </div>
+                        <h4 class="modal-title fw-bold mb-3 text-white">Save your adventure!</h4>
+                        <p class="small mb-4" style="color: #bbb;">
+                            Sign in to book this hike or save it to your wishlist.
+                        </p>
+                        <div class="d-grid gap-3">
+                            <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=894735970360-ffmjspg7espidrlnv8addt1r1d7tiuam.apps.googleusercontent.com&redirect_uri=http://localhost/final_project/google_callback.php&scope=email%20profile&access_type=online"
+                                class="btn text-white py-2 fw-bold mt-2" style="background-color: #4CAF50; border: none;">
+                                <i class="fa-brands fa-google me-2"></i> Continue with Google
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    <?php else: ?>
+
+    <?php endif; ?>
 
     <!-- bottom bar for mobile BOOKING -->
     <div class="d-lg-none fixed-bottom bg-dark border-top border-secondary p-2 shadow-lg" style="z-index: 1050;">

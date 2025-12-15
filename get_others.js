@@ -42,9 +42,6 @@ async function fetchOthers() {
                                     <img src="${image}" class="card-img-top" alt="${name}" 
                                          onerror="this.src='assets/placeholder.jpg'">
                                 </div>
-                                <button class="btn btn-light rounded-circle favorite-btn" aria-label="Add to favorites">
-                                    <i class="fa-regular fa-bookmark fav-btn"></i>
-                                </button>
                             </div>
                             <div class="card-body">
                                 <span class="location-tag">${location}</span>
