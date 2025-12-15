@@ -34,17 +34,17 @@
     <!-- navbar -->
     <nav class="fixed-top navbar navbar-expand-lg navbar-custom navbar-dark">
         <div class="container-lg container-md">
-            <div class="row">
-                <a class="navbar-brand navbar-brand-text" href="index.html">
-                    <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
-                </a>
-            </div>
+            <a class="navbar-brand navbar-brand-text" href="index.html">
+                <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+            <div class="collapse navbar-collapse d-none d-lg-flex justify-content-between" id="navbarNav">
+
                 <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
                     <li class="nav-item">
                         <a class="nav-link navbar-text navbar-font-size" href="index.html">
@@ -67,41 +67,42 @@
                         </a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 navbar-search" type="search" placeholder="Search"
-                        aria-label="Search" />
-                    <button class="btn navbar-search-button navbar-search-button-text" type="submit">Search</button>
-                </form>
+
+                <div class="d-flex align-items-center gap-3">
+                    <form class="d-flex input-group search-group" role="search">
+                        <input class="form-control navbar-search" type="search" placeholder="Search..."
+                            aria-label="Search" />
+                        <button class="btn btn-outline-secondary search-icon-btn" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+
+                    <a href="login.html" class="btn btn-login">
+                        Login
+                    </a>
+                </div>
             </div>
 
             <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1" id="navbarOffcanvas">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title">Menu</h5>
+                    <h5 class="offcanvas-title text-white">Menu</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
                 </div>
-                <div class="offcanvas-body">
+                <div class="offcanvas-body d-flex flex-column justify-content-between">
                     <ul class="navbar-nav nav-text">
-                        <li class="nav-item">
-                            <a class="nav-link navbar-text" href="index.html">
-                                <i class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-text" href="tours.html">
-                                <i class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-text" href="events.html">
-                                <i class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-text" href="tips.html">
-                                <i class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips
-                            </a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link navbar-text" href="index.html"><i
+                                    class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home</a></li>
+                        <li class="nav-item"><a class="nav-link navbar-text" href="tours.html"><i
+                                    class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours</a></li>
+                        <li class="nav-item"><a class="nav-link navbar-text" href="events.html"><i
+                                    class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events</a></li>
+                        <li class="nav-item"><a class="nav-link navbar-text" href="tips.html"><i
+                                    class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips</a></li>
                     </ul>
+
+                    <div class="mt-4">
+                        <a href="login.html" class="btn btn-login w-100">Login / Sign Up</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -593,11 +594,6 @@
 
 
                         <div class="d-grid gap-3">
-                            <button class="btn btn-outline-light d-flex align-items-center justify-content-center py-2"
-                                type="button">
-                                Sign Up / Log In with Email
-                            </button>
-
                             <button class="btn text-white py-2 fw-bold mt-2"
                                 style="background-color: #4CAF50; border: none;" type="button">
                                 <i class="fa-brands fa-google me-2"></i> Continue with google

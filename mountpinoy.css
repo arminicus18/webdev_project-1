@@ -54,7 +54,6 @@ body {
 
 .navbar-search {
     margin-left: auto;
-    margin-right: 20px;
     width: 130px;
     background-color: #1e1e1e !important; /* Match card color */
     border: 1px solid #333 !important;     /* Subtle border */
@@ -73,10 +72,6 @@ body {
     font-weight: bold;
 }
 
-.navbar-search-button:hover {
-    background-color: #5f9465;
-}
-
 .navbar-text {
     color: white;
     font-weight: bold;
@@ -88,6 +83,56 @@ body {
 
 .navbar-text.active {
     border-bottom: 3px solid #ffc107;
+}
+
+/* ================== NAVBAR UPDATES ================== */
+
+/* --- Compact Search Bar --- */
+.search-group {
+    width: 120px; /* Adjust this width if needed */
+}
+
+.navbar-search {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    border-right: none !important; /* Remove right border to merge with icon */
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.navbar-search::placeholder {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.search-icon-btn {
+    padding: 6px 5px;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-left: none; /* Remove left border to merge with input */
+    color: #888;
+    transition: all 0.3s ease;
+}
+
+.search-icon-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* --- Login Button --- */
+.btn-login {
+    background-color: #FFC107; /* Your branding Yellow */
+    color: #000;
+    font-weight: bold;
+    border-radius: 20px; /* Pill shape */
+    padding: 6px 16px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-login:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 
