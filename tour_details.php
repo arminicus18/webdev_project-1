@@ -187,6 +187,12 @@ if (isset($_SESSION['user_id'])) {
                                 </li>
 
                                 <li>
+                                    <a class="dropdown-item text-white" href="my_bookings.php">
+                                        <i class="fa-solid fa-ticket me-2 text-success"></i> My Bookings
+                                    </a>
+                                </li>
+
+                                <li>
                                     <hr class="dropdown-divider border-secondary">
                                 </li>
 
