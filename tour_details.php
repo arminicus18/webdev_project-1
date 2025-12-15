@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user_name'])) {
+    header("Location: index.html");
+    exit();
+}
+
 // 1. DATABASE CONNECTION
 $serverName = "ARMINICUS-18\SQLEXPRESS";
 $connectionOptions = [

@@ -7,7 +7,9 @@ $connectionOptions = [
     "Authentication" => "ActiveDirectoryIntegrated"
 ];
 $conn = sqlsrv_connect($serverName, $connectionOptions);
-if ($conn === false) { die(print_r(sqlsrv_errors(), true)); }
+if ($conn === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
 
 // 2. FETCH STATS (COUNTS)
 // Count ALL tours
@@ -29,13 +31,15 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>MountPinoy Admin Dashboard</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="mountpinoy.css">
 </head>
+
 <body>
 
     <nav class="navbar navbar-dark bg-dark mb-4">
@@ -46,7 +50,7 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
     </nav>
 
     <div class="container">
-        
+
         <div class="row mb-4">
             <div class="col-md-6 mb-3">
                 <div class="card card-stat bg-primary-gradient p-3">
@@ -75,6 +79,16 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
                     <small>Step 2: Itinerary, Map, & Inclusions</small>
                 </a>
             </div>
+
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-6 d-grid">
+                <a href="addevent.php" class="btn btn-warning btn-lg py-3 shadow-sm">
+                    <strong>Create a scheduled event</strong> <br>
+                    <small>add event</small>
+                </a>
+            </div>
         </div>
 
         <div class="table-container">
@@ -91,13 +105,13 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     // Loop through the list
-                    while($row = sqlsrv_fetch_array($stmt_list, SQLSRV_FETCH_ASSOC)) { 
+                    while ($row = sqlsrv_fetch_array($stmt_list, SQLSRV_FETCH_ASSOC)) {
                         // Determine Status Color
                         $status_class = ($row['IS_ACTIVE'] == 1) ? 'status-active' : '';
                         $status_text = ($row['IS_ACTIVE'] == 1) ? 'Active' : 'Hidden';
-                    ?>
+                        ?>
                         <tr>
                             <td><strong><?php echo $row['TOUR_ID']; ?></strong></td>
                             <td><?php echo $row['TOUR_NAME']; ?></td>
@@ -105,14 +119,14 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
                             <td><?php echo $row['ISLAND']; ?></td>
                             <td>₱<?php echo number_format($row['PRICE'], 2); ?></td>
                             <td>
-                                <span class="status-dot <?php echo $status_class; ?>"></span> 
+                                <span class="status-dot <?php echo $status_class; ?>"></span>
                                 <?php echo $status_text; ?>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
-            
+
             <?php if ($total_tours == 0) { ?>
                 <p class="text-center text-muted py-3">No tours found. Create one to get started!</p>
             <?php } ?>
@@ -121,4 +135,5 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
     </div>
 
 </body>
+
 </html>
