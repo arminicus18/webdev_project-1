@@ -79,13 +79,38 @@ session_start();
                         </button>
                     </form>
 
-                    <img src="<?php echo $_SESSION['user_picture']; ?>" alt="Profile" class="rounded-circle"
-                        style="width: 35px; height: 35px; border: 2px solid #FFC107;">
+                    <div class="dropdown">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="userDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
 
-                    <a href="logout.php" class="btn btn-danger btn-sm rounded-pill px-3">
-                        Logout
-                    </a>
+                            <img src="<?php echo $_SESSION['user_picture']; ?>" alt="Profile" class="rounded-circle"
+                                style="width: 38px; height: 38px; object-fit: cover; border: 2px solid #FFC107;">
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark shadow"
+                            aria-labelledby="userDropdown">
+                            <li>
+                                <h6 class="dropdown-header text-white text-truncate" style="max-width: 200px;">
+                                    Signed in as <br>
+                                    <strong class="text-warning">
+                                        <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?>
+                                    </strong>
+                                </h6>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider border-secondary">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item text-danger" href="logout.php">
+                                    <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
 
             <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1" id="navbarOffcanvas">
