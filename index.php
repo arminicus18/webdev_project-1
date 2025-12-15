@@ -101,12 +101,21 @@ if (!isset($_SESSION['user_name'])) {
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark shadow"
                             aria-labelledby="userDropdown">
                             <li>
-                                <h6 class="dropdown-header text-white text-truncate" style="max-width: 200px;">
-                                    Signed in as <br>
+                                <h4 class="dropdown-header text-white text-truncate" style="max-width: 200px;">
                                     <strong class="text-warning">
                                         <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?>
                                     </strong>
-                                </h6>
+                                </h4>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider border-secondary">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item text-white" href="wishlist.php">
+                                    <i class="fa-solid fa-heart me-2 text-warning"></i> My Wishlist
+                                </a>
                             </li>
 
                             <li>
@@ -119,6 +128,7 @@ if (!isset($_SESSION['user_name'])) {
                                 </a>
                             </li>
                         </ul>
+
                     </div>
                 </div>
 
@@ -126,23 +136,27 @@ if (!isset($_SESSION['user_name'])) {
 
             <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1" id="navbarOffcanvas">
                 <div class="offcanvas-header">
+                    <img src="<?php echo $_SESSION['user_picture']; ?>" alt="Profile" class="rounded-circle"
+                                style="width: 38px; height: 38px; object-fit: cover; border: 2px solid #FFC107; margin-right: 5px;">
                     <h5 class="offcanvas-title text-white">Menu</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
                 </div>
                 <div class="offcanvas-body d-flex flex-column justify-content-between">
                     <ul class="navbar-nav nav-text">
-                        <li class="nav-item"><a class="nav-link navbar-text" href="index.html"><i
+                        <li class="nav-item"><a class="nav-link navbar-text active" href="index.php"><i
                                     class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home</a></li>
-                        <li class="nav-item"><a class="nav-link navbar-text" href="tours.html"><i
+                        <li class="nav-item"><a class="nav-link navbar-text" href="tours.php"><i
                                     class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours</a></li>
-                        <li class="nav-item"><a class="nav-link navbar-text" href="events.html"><i
+                        <li class="nav-item"><a class="nav-link navbar-text" href="events.php"><i
                                     class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events</a></li>
-                        <li class="nav-item"><a class="nav-link navbar-text" href="tips.html"><i
+                        <li class="nav-item"><a class="nav-link navbar-text" href="tips.php"><i
                                     class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips</a></li>
                     </ul>
 
                     <div class="mt-4">
-                        <a href="login.html" class="btn btn-login w-100">Login / Sign Up</a>
+                        <a class="text-danger text-decoration-none" href="logout.php">
+                            <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+                        </a>
                     </div>
                 </div>
             </div>

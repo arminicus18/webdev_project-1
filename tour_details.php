@@ -37,6 +37,23 @@ $stmt_inc = sqlsrv_query($conn, $sql_inc, array($tour_id));
 
 $sql_itin = "SELECT * FROM ITINERARY_1 WHERE TOUR_ID = ?";
 $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
+
+// 4. CHECK WISHLIST STATE
+$is_wishlisted = false;
+
+if (isset($_SESSION['user_id'])) {
+    $check_user_id = $_SESSION['user_id'];
+    $current_tour_id = $_GET['id'];
+
+    // Uses TourID as confirmed in DB
+    $check_sql = "SELECT * FROM WISHLIST_1 WHERE UserID = ? AND TourID = ?";
+    $check_params = array($check_user_id, $current_tour_id);
+    $check_stmt = sqlsrv_query($conn, $check_sql, $check_params);
+
+    if ($check_stmt && sqlsrv_has_rows($check_stmt)) {
+        $is_wishlisted = true;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -146,12 +163,21 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark shadow"
                                 aria-labelledby="userDropdown">
                                 <li>
-                                    <h6 class="dropdown-header text-white text-truncate" style="max-width: 200px;">
-                                        Signed in as <br>
+                                    <h4 class="dropdown-header text-white text-truncate" style="max-width: 200px;">
                                         <strong class="text-warning">
-                                            <?php echo $_SESSION['user_name']; ?>
+                                            <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?>
                                         </strong>
-                                    </h6>
+                                    </h4>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider border-secondary">
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-white" href="wishlist.php">
+                                        <i class="fa-solid fa-heart me-2 text-warning"></i> My Wishlist
+                                    </a>
                                 </li>
 
                                 <li>
@@ -225,13 +251,11 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
             </div>
         </header>
 
-        <!-- full description of tour -->
         <div class="container pb-5">
             <div class="row">
 
-                <!-- main view -->
                 <div class="col-lg-8">
-                    <!-- long description of tour -->
+                    <!-- description -->
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-solid fa-mountain-sun me-2"></i> About this Adventure
@@ -242,7 +266,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     </div>
 
-                    <!-- inclusions section -->
+                    <!-- inclusions -->
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-solid fa-check-double me-2"></i> What's Included</h3>
@@ -260,7 +284,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     </div>
 
-                    <!-- gmaps section -->
+                    <!-- location -->
                     <?php if (!empty($details['GMAPS_LOC'])) { ?>
                         <div class="card shadow-sm">
                             <div class="card-body p-4">
@@ -272,7 +296,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     <?php } ?>
 
-                    <!-- images carousel -->
+                    <!-- microservice UNSPLASH -->
                     <div class="card shadow-sm mb-4">
                         <div class="card-body p-0 overflow-hidden rounded">
 
@@ -305,7 +329,6 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
-
                         </div>
                         <div class="card-footer bg-dark border-top border-secondary py-2">
                             <small class="text-warning"><i class="fa-solid fa-camera-retro me-2"></i>From Previous
@@ -313,7 +336,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         </div>
                     </div>
 
-                    <!-- itenerary section -->
+                    <!-- itinerary -->
                     <div class="card shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="card-title"><i class="fa-regular fa-clock me-2"></i> Itinerary</h3>
@@ -350,11 +373,10 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
 
                                 <?php } ?>
                             </div>
-
                         </div>
                     </div>
 
-                    <!-- video section -->
+                    <!-- yt vid embed -->
                     <?php if (!empty($details['YT_LINK'])) { ?>
                         <div class="card shadow-sm mt-4">
                             <div class="card-body p-4">
@@ -369,7 +391,6 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
 
                 </div>
 
-                <!-- sticky sidebar -->
                 <aside class="col-lg-4 d-none d-lg-block">
                     <div class="sticky-sidebar">
 
@@ -426,14 +447,38 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                             </div>
 
                             <div class="d-grid gap-2">
-                                <button class="btn btn-warning btn-lg fw-bold py-3" data-bs-toggle="modal"
-                                    data-bs-target="#loginPromptModal">
-                                    Book This Tour
-                                </button>
-                                <button class="btn btn-outline-light" data-bs-toggle="modal"
-                                    data-bs-target="#loginPromptModal">
-                                    <i class="fa-regular fa-heart"></i> Add to Wishlist
-                                </button>
+
+                                <?php if (isset($_SESSION['user_id'])): ?>
+                                    <a href="booking.php?id=<?php echo $tour['TOUR_ID']; ?>"
+                                        class="btn btn-warning btn-lg fw-bold py-3">
+                                        Book This Tour
+                                    </a>
+                                <?php else: ?>
+                                    <button class="btn btn-warning btn-lg fw-bold py-3" data-bs-toggle="modal"
+                                        data-bs-target="#loginPromptModal">
+                                        Book This Tour
+                                    </button>
+                                <?php endif; ?>
+
+                                <?php
+                                $btnClass = $is_wishlisted ? "btn-danger text-white" : "btn-outline-light";
+                                $iconClass = $is_wishlisted ? "fa-solid" : "fa-regular";
+                                $btnText = $is_wishlisted ? "Saved to Wishlist" : "Add to Wishlist";
+                                ?>
+
+                                <?php if (isset($_SESSION['user_id'])): ?>
+                                    <button class="btn <?php echo $btnClass; ?>" data-id="<?php echo $tour['TOUR_ID']; ?>"
+                                        onclick="toggleWishlist(this)">
+                                        <i class="<?php echo $iconClass; ?> fa-heart"></i>
+                                        <span><?php echo $btnText; ?></span>
+                                    </button>
+                                <?php else: ?>
+                                    <button class="btn btn-outline-light" data-bs-toggle="modal"
+                                        data-bs-target="#loginPromptModal">
+                                        <i class="fa-regular fa-heart"></i> Add to Wishlist
+                                    </button>
+                                <?php endif; ?>
+
                             </div>
                         </div>
 
@@ -514,7 +559,6 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
         </div>
     </footer>
 
-    <!-- modal for booking BUT NO ACCOUNT -->
     <?php if (!isset($_SESSION['user_name'])): ?>
 
         <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
@@ -547,7 +591,6 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
 
     <?php endif; ?>
 
-    <!-- bottom bar for mobile BOOKING -->
     <div class="d-lg-none fixed-bottom bg-dark border-top border-secondary p-2 shadow-lg" style="z-index: 1050;">
         <div class="container">
 
@@ -564,10 +607,18 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
                         style="font-size: 0.65rem; line-height: 1;">Price per person</small>
                     <h4 class="text-white m-0 fw-bold">₱<?php echo number_format($tour['PRICE']); ?></h4>
                 </div>
-                <button class="btn btn-warning fw-bold px-4 py-2" data-bs-toggle="modal"
-                    data-bs-target="#loginPromptModal">
-                    Book Now
-                </button>
+
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <a href="booking.php?id=<?php echo $tour['TOUR_ID']; ?>" class="btn btn-warning fw-bold px-4 py-2">
+                        Book Now
+                    </a>
+                <?php else: ?>
+                    <button class="btn btn-warning fw-bold px-4 py-2" data-bs-toggle="modal"
+                        data-bs-target="#loginPromptModal">
+                        Book Now
+                    </button>
+                <?php endif; ?>
+
             </div>
 
         </div>
@@ -579,6 +630,7 @@ $stmt_itin = sqlsrv_query($conn, $sql_itin, array($tour_id));
     <script src="navbar.js"></script>
     <script src="service_gallery.js"></script>
     <script src="service_weather.js"></script>
+    <script src="wishlist_process.js"></script>
 
 </body>
 
