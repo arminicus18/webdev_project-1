@@ -1,44 +1,153 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['user_name'])) {
-    header("Location: index.html");
-    exit();
-}
 ?>
 
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-    <title>
-        Frequently Asked Questions
-    </title>
-
+    <title>Frequently Asked Questions | MountPinoy</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://kit.fontawesome.com/97fe9f84ce.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="mountpinoy.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    <style>
+        /* --- MOUNTPINOY THEME FOR TIPS PAGE --- */
+        body {
+            background-color: #121212;
+            /* Deep Dark Background */
+            color: #e0e0e0;
+        }
 
-    <script src="https://kit.fontawesome.com/97fe9f84ce.js" crossorigin="anonymous"></script>
-    <script defer src="mountpinoy.js"></script>
+        /* Titles */
+        .page-title {
+            color: #FFC107;
+            /* MountPinoy Yellow */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 0px 15px rgba(255, 193, 7, 0.4);
+            /* Slightly stronger glow */
+        }
+
+        /* --- BIGGER ACCORDION STYLING --- */
+        .accordion-item {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+            /* Increased spacing between items */
+            border-radius: 12px !important;
+            /* Slightly rounder corners */
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            /* Deeper shadow for depth */
+        }
+
+        /* Button (Closed State) - MADE BIGGER */
+        .accordion-button {
+            background-color: #2c2c2c;
+            color: #fff;
+            font-weight: 700;
+            /* Bolder by default */
+            font-size: 1.35rem;
+            /* SIGNIFICANTLY LARGER FONT */
+            padding: 1.5rem 2rem;
+            /* Much taller buttons with more side padding */
+            transition: all 0.3s ease;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #FFC107;
+        }
+
+        /* Button (Open/Active State) */
+        .accordion-button:not(.collapsed) {
+            background-color: #FFC107;
+            color: #000;
+            font-weight: 900;
+            /* Extra bold when active */
+            font-size: 1.4rem;
+            /* A tiny bit bigger when open */
+        }
+
+        /* Icon styling in header - Scaled Up */
+        .accordion-button i {
+            font-size: 1.6rem;
+            /* Bigger header icons */
+            margin-right: 15px;
+        }
+
+        .accordion-button::after {
+            filter: invert(1);
+            transform: scale(1.3);
+        }
+
+        /* Bigger arrow, white */
+        .accordion-button:not(.collapsed):after {
+            filter: invert(0);
+            transform: scale(1.3) rotate(-180deg);
+        }
+
+        /* Bigger arrow, black */
+
+        .accordion-button:hover {
+            background-color: #383838;
+        }
+
+        .accordion-button:not(.collapsed):hover {
+            background-color: #e0a800;
+        }
+
+        /* Body Content - MADE BIGGER */
+        .accordion-body {
+            background-color: #1e1e1e;
+            border-top: 2px solid #FFC107;
+            /* A nice yellow divider line */
+            color: #ddd;
+            font-size: 1.15rem;
+            /* Larger readable text size */
+            padding: 2.5rem;
+            /* Lots of breathing room inside */
+            line-height: 1.7;
+            /* Better readability */
+        }
+
+        /* Icons inside the body - Scaled Up */
+        .tip-icon {
+            font-size: 1.4rem;
+            /* Bigger list icons */
+            margin-right: 15px;
+            width: 35px;
+            text-align: center;
+        }
+
+        /* Make list items have more space */
+        .accordion-body li {
+            margin-bottom: 1rem;
+        }
+
+        /* Custom Slider CSS to match MountPinoy Theme */
+        .custom-range::-webkit-slider-thumb {
+            background: #FFC107;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+        }
+
+        .custom-range::-webkit-slider-runnable-track {
+            background: #444;
+        }
+    </style>
 </head>
 
-
-
 <body>
-    <!-- navbar -->
+
     <nav class="fixed-top navbar navbar-expand-lg navbar-custom navbar-dark">
         <div class="container-lg container-md">
             <a class="navbar-brand navbar-brand-text" href="index.html">
@@ -51,128 +160,335 @@ if (!isset($_SESSION['user_name'])) {
             </button>
 
             <div class="collapse navbar-collapse d-none d-lg-flex justify-content-between" id="navbarNav">
-
                 <ul class="navbar-nav mx-auto justify-content-around w-50 nav-text">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size" href="index.php">
-                            <i class="fa-regular fa-house fa-lg nav-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size" href="tours.php">
-                            <i class="fa-solid fa-person-hiking fa-lg nav-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size" href="events.php">
-                            <i class="fa-regular fa-calendar-days fa-lg nav-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-text navbar-font-size active" href="tips.php">
-                            <i class="fa-solid fa-circle-info fa-lg nav-icon"></i>
-                        </a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link navbar-text navbar-font-size" href="index.html"><i
+                                class="fa-regular fa-house fa-lg nav-icon"></i></a></li>
+                    <li class="nav-item"><a class="nav-link navbar-text navbar-font-size" href="tours.html"><i
+                                class="fa-solid fa-person-hiking fa-lg nav-icon"></i></a></li>
+                    <li class="nav-item"><a class="nav-link navbar-text navbar-font-size" href="events.html"><i
+                                class="fa-regular fa-calendar-days fa-lg nav-icon"></i></a></li>
+                    <li class="nav-item"><a class="nav-link navbar-text navbar-font-size" href="tips.html"><i
+                                class="fa-solid fa-circle-info fa-lg nav-icon"></i></a></li>
                 </ul>
 
                 <div class="d-flex align-items-center gap-3">
                     <form class="d-flex input-group search-group" role="search">
                         <input class="form-control navbar-search" type="search" placeholder="Search..."
                             aria-label="Search" />
-                        <button class="btn btn-outline-secondary search-icon-btn" type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
+                        <button class="btn btn-outline-secondary search-icon-btn" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
-
-                    <div class="dropdown">
-                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="userDropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-
-                            <img src="<?php echo $_SESSION['user_picture']; ?>" alt="Profile" class="rounded-circle"
-                                style="width: 38px; height: 38px; object-fit: cover; border: 2px solid #FFC107;">
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark shadow"
-                            aria-labelledby="userDropdown">
-                            <li>
-                                <h4 class="dropdown-header text-white text-truncate" style="max-width: 200px;">
-                                    <strong class="text-warning">
-                                        <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?>
-                                    </strong>
-                                </h4>
-                            </li>
-
-                            <li>
-                                <hr class="dropdown-divider border-secondary">
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item text-white" href="wishlist.php">
-                                    <i class="fa-solid fa-heart me-2 text-warning"></i> My Wishlist
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item text-white" href="my_bookings.php">
-                                    <i class="fa-solid fa-ticket me-2 text-success"></i> My Bookings
-                                </a>
-                            </li>
-
-                            <li>
-                                <hr class="dropdown-divider border-secondary">
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item text-danger" href="logout.php">
-                                    <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
-                                </a>
-                            </li>
-                        </ul>
-
-                    </div>
+                    <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=894735970360-ffmjspg7espidrlnv8addt1r1d7tiuam.apps.googleusercontent.com&redirect_uri=http://localhost/final_project/google_callback.php&scope=email%20profile&access_type=online"
+                        class="btn btn-login">Login</a>
                 </div>
-
             </div>
 
             <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1" id="navbarOffcanvas">
                 <div class="offcanvas-header">
-                    <img src="<?php echo $_SESSION['user_picture']; ?>" alt="Profile" class="rounded-circle"
-                        style="width: 38px; height: 38px; object-fit: cover; border: 2px solid #FFC107; margin-right: 5px;">
                     <h5 class="offcanvas-title text-white">Menu</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
                 </div>
                 <div class="offcanvas-body d-flex flex-column justify-content-between">
                     <ul class="navbar-nav nav-text">
-                        <li class="nav-item"><a class="nav-link navbar-text" href="index.php"><i
+                        <li class="nav-item"><a class="nav-link navbar-text" href="index.html"><i
                                     class="fa-regular fa-house fa-lg nav-icon me-2"></i> Home</a></li>
-                        <li class="nav-item"><a class="nav-link navbar-text" href="tours.php"><i
+                        <li class="nav-item"><a class="nav-link navbar-text" href="tours.html"><i
                                     class="fa-solid fa-person-hiking fa-lg nav-icon me-2"></i> Tours</a></li>
-                        <li class="nav-item"><a class="nav-link navbar-text" href="events.php"><i
+                        <li class="nav-item"><a class="nav-link navbar-text" href="events.html"><i
                                     class="fa-regular fa-calendar-days fa-lg nav-icon me-2"></i> Events</a></li>
-                        <li class="nav-item"><a class="nav-link navbar-text active" href="tips.php"><i
+                        <li class="nav-item"><a class="nav-link navbar-text" href="tips.html"><i
                                     class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips</a></li>
                     </ul>
-
-                    <div class="mt-4">
-                        <a class="text-danger text-decoration-none" href="logout.php">
-                            <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
-                        </a>
-                    </div>
+                    <a href="#" class="btn btn-login">Login</a>
                 </div>
             </div>
         </div>
     </nav>
 
-
-
-
     <main>
+        <div class="container mb-5" style="margin-top: 100px;">
 
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold page-title">
+                    <i class="bi bi-compass-fill"></i> Hiker's Guide
+                </h1>
+                <p class="lead text-secondary">Essential tips for a safe and responsible adventure.</p>
+                <hr style="width: 60px; margin: 20px auto; border: 3px solid #FFC107; opacity: 1; border-radius: 5px;">
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="hikingTipsAccordion">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="bi bi-tree-fill me-2"></i> The LNT Principles (Leave No Trace)
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#hikingTipsAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3 fst-italic text-white">"Take nothing but pictures, leave nothing but
+                                        footprints."</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-trash3-fill text-warning tip-icon"></i>
+                                            <strong>Dispose of Waste Properly:</strong> Apply the <em>"Basura Mo, Iuwi
+                                                Mo"</em> policy.
+                                        </li>
+                                        <li class="mb-2"><i class="bi bi-bug-fill text-warning tip-icon"></i>
+                                            <strong>Respect Wildlife:</strong> Keep a safe distance. Do not feed
+                                            animals.
+                                        </li>
+                                        <li class="mb-2"><i class="bi bi-volume-mute-fill text-warning tip-icon"></i>
+                                            <strong>Be Considerate:</strong> Keep noise levels down. Nature is not a
+                                            disco.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="bi bi-backpack-fill me-2"></i> What to Pack (The Essentials)
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#hikingTipsAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <label class="small text-secondary mb-1">Packing Progress:</label>
+                                        <div class="progress" style="height: 10px; background-color: #333;">
+                                            <div id="packProgressBar" class="progress-bar bg-warning" role="progressbar"
+                                                style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <small id="packProgressText" class="text-white">0% Ready</small>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox"
+                                                    id="packWater">
+                                                <label class="form-check-label" for="packWater"><i
+                                                        class="bi bi-droplet-fill text-info me-2"></i> Water
+                                                    (2L)</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox" id="packFood">
+                                                <label class="form-check-label" for="packFood"><i
+                                                        class="bi bi-egg-fried text-warning me-2"></i> Trail
+                                                    Food</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox" id="packRain">
+                                                <label class="form-check-label" for="packRain"><i
+                                                        class="bi bi-umbrella-fill text-secondary me-2"></i> Rain
+                                                    Gear</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox"
+                                                    id="packClothes">
+                                                <label class="form-check-label" for="packClothes"><i
+                                                        class="bi bi-person-fill text-light me-2"></i> Extra
+                                                    Clothes</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox" id="packMeds">
+                                                <label class="form-check-label" for="packMeds"><i
+                                                        class="bi bi-bandaid-fill text-danger me-2"></i> First Aid
+                                                    Kit</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox"
+                                                    id="packLight">
+                                                <label class="form-check-label" for="packLight"><i
+                                                        class="bi bi-lightbulb-fill text-warning me-2"></i>
+                                                    Headlamp</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox"
+                                                    id="packWhistle">
+                                                <label class="form-check-label" for="packWhistle"><i
+                                                        class="bi bi-megaphone-fill text-danger me-2"></i>
+                                                    Whistle</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input pack-item" type="checkbox" id="packID">
+                                                <label class="form-check-label" for="packID"><i
+                                                        class="bi bi-card-text text-primary me-2"></i> Valid ID</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3 text-end">
+                                        <button class="btn btn-sm btn-outline-secondary"
+                                            onclick="resetPackingList()">Reset List</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="bi bi-heart-pulse-fill me-2"></i> Health & Safety Requirements
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#hikingTipsAccordion">
+                                <div class="accordion-body">
+                                    <p>Mountaineering is physically demanding. Be honest with your guide.</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i
+                                                class="bi bi-clipboard-check-fill text-success tip-icon"></i>
+                                            <strong>Medical Declaration:</strong> Declare asthma, hypertension, or heart
+                                            issues.
+                                        </li>
+                                        <li class="mb-2"><i class="bi bi-clock-history text-warning tip-icon"></i>
+                                            <strong>Cut-off Times:</strong> Respect mandatory descent times.
+                                        </li>
+                                        <li class="mb-2"><i class="bi bi-activity text-danger tip-icon"></i>
+                                            <strong>Physical Prep:</strong> Jogging/Cardio 1 week prior is required.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mb-5 mt-5">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold text-uppercase" style="color: #FFC107; letter-spacing: 2px;">
+                        <i class="bi bi-bar-chart-steps"></i> Difficulty Scale
+                    </h2>
+                    <p class="text-secondary">Slide to understand the Pinoy Mountaineer rating system.</p>
+                    <hr
+                        style="width: 60px; margin: 20px auto; border: 3px solid #FFC107; opacity: 1; border-radius: 5px;">
+                </div>
+
+                <div class="card p-4" style="background-color: #1e1e1e; border: 1px solid #333; border-radius: 15px;">
+
+                    <label for="difficultyRange" class="form-label text-warning fw-bold">Select Rating (1-9):</label>
+                    <input type="range" class="form-range custom-range" min="1" max="9" step="1" id="difficultyRange"
+                        value="3" oninput="updateDifficulty()">
+
+                    <div class="row align-items-center mt-4">
+                        <div class="col-md-3 text-center border-end border-secondary">
+                            <h1 id="diffNumber" class="display-1 fw-bold text-white"
+                                style="text-shadow: 0 0 10px #FFC107;">3/9</h1>
+                        </div>
+
+                        <div class="col-md-9">
+                            <h3 id="diffTitle" class="text-warning text-uppercase fw-bold">Minor Climb</h3>
+                            <p id="diffDesc" class="text-secondary lead">Fun and easy. Good for beginners with basic
+                                fitness.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-secondary">Example:</span>
+                                <span id="diffExample" class="text-white fst-italic">Mt. Gulugod Baboy, Mt.
+                                    Batulao</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mb-5">
+                <div class="text-center mb-4 mt-5">
+                    <h2 class="fw-bold text-uppercase" style="color: #FFC107; letter-spacing: 2px;">
+                        <i class="bi bi-youtube"></i> Watch & Learn
+                    </h2>
+                    <p class="text-secondary">Curated video guides for the trail ahead.</p>
+                    <hr
+                        style="width: 60px; margin: 20px auto; border: 3px solid #FFC107; opacity: 1; border-radius: 5px;">
+                </div>
+
+                <div class="row" id="video-container">
+                    <div class="col-12 text-center text-warning">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
+    <footer class="footer mt-auto py-5 text-white" style="background-color: #1a1a1a;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3"><span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span></h5>
+                    <p class="text-secondary small">Your trusted guide to exploring the most majestic peaks and hidden
+                        trails across the Philippines. Safety, sustainability, and adventure.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="tours.html" class="text-white text-decoration-none small">All Tours &
+                                Expeditions</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none small">About Us</a>
+                        </li>
+                        <li class="mb-2"><a href="faqs.html" class="text-white text-decoration-none small">FAQ &
+                                Preparation</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none small">Adventure
+                                Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Get in Touch</h5>
+                    <ul class="list-unstyled text-secondary small">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@mountpinoy.ph</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-warning"></i> +63 923 417 5772</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Carmona, Cavite,
+                            Philippines</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Connect</h5>
+                    <a href="https://www.facebook.com/armin.derosas.18" class="text-white me-3"><i
+                            class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="https://www.instagram.com/arminicus18/" class="text-white me-3"><i
+                            class="fab fa-instagram fa-lg"></i></a>
+                    <a href="https://www.youtube.com/@arminderosas9461" class="text-white me-3"><i
+                            class="fab fa-youtube fa-lg"></i></a>
+                    <p class="text-secondary mt-3 small">Subscribe for early bird specials.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-sm" placeholder="Your Email"
+                                aria-label="Email for newsletter">
+                            <button class="btn btn-warning btn-sm" type="submit">Go</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="row">
+                <div class="col-12 text-center small text-secondary pt-3">
+                    &copy; 2025 MountPinoy Expeditions. All rights reserved. | <a href="#"
+                        class="text-warning text-decoration-none">DE ROSAS ARMIN CPE41</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="service_youtube.js"></script>
+    <script src="tips.js"></script>
 
 </body>
-
 
 </html>

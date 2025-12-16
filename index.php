@@ -143,7 +143,7 @@ if (!isset($_SESSION['user_name'])) {
             <div class="offcanvas offcanvas-end navbar-custom navbar-dark d-lg-none" tabindex="-1" id="navbarOffcanvas">
                 <div class="offcanvas-header">
                     <img src="<?php echo $_SESSION['user_picture']; ?>" alt="Profile" class="rounded-circle"
-                                style="width: 38px; height: 38px; object-fit: cover; border: 2px solid #FFC107; margin-right: 5px;">
+                        style="width: 38px; height: 38px; object-fit: cover; border: 2px solid #FFC107; margin-right: 5px;">
                     <h5 class="offcanvas-title text-white">Menu</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
                 </div>
@@ -178,17 +178,25 @@ if (!isset($_SESSION['user_name'])) {
         <!-- hero part -->
         <section class="hero">
             <div class="hero-image">
-                <div class="hero-heading">
-                    <h1 class="hero-text"> <span class="hero-adventure">LOCAL</span> TRAILS: BIG <span
-                            class="hero-local">ADVENTURES!</span></h1>
-                    <div class="hero-subheading">
-                        <p>From <span style="color: rgb(65, 65, 188);">Luzon</span>, <span
-                                style="color: #ffc107;">Visayas</span> and
-                            <span style="color: rgb(210, 82, 82);">Mindanao</span>, discover breathtaking trails,
-                            plan your next hike,
-                        </p>
-                        <p>and experience the true spirit of Philippine mountains. Adventure awaits, kabayan!</p>
-                        <button type="submit" class="btn btn-lg btn-climb">Akyat na!</button>
+                <div class="container text-center">
+                    <div class="hero-heading">
+
+                        <h1 class="hero-text">
+                            <span class="hero-adventure">LOCAL</span> TRAILS:<br class="d-md-none"> BIG <span
+                                class="hero-local">ADVENTURES!</span>
+                        </h1>
+
+                        <div class="hero-subheading">
+                            <p class="mb-1">From
+                                <span class="fw-bold" style="color: rgb(65, 65, 188);">Luzon</span>,
+                                <span class="fw-bold" style="color: #ffc107;">Visayas</span>, and
+                                <span class="fw-bold" style="color: rgb(210, 82, 82);">Mindanao</span>
+                            </p>
+                            <p>Discover breathtaking trails and experience the true spirit of Philippine mountains.</p>
+
+                            <a href="tours.php" class="btn btn-climb">Akyat na!</a>
+                        </div>
+
                     </div>
                 </div>
             </div>

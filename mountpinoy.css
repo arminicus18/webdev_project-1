@@ -10,20 +10,20 @@
 
 .logo-mount {
     color: #4CAF50;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 }
 
 .logo-pinoy {
     color: #FFC107;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 }
 
 .navbar-brand-text:hover .logo-mount {
-    color: #FFC107; 
+    color: #FFC107;
 }
 
 .navbar-brand-text:hover .logo-pinoy {
-    color: #4CAF50; 
+    color: #4CAF50;
 }
 
 .navbar:hover {
@@ -55,8 +55,10 @@ body {
 .navbar-search {
     margin-left: auto;
     width: 130px;
-    background-color: #1e1e1e !important; /* Match card color */
-    border: 1px solid #333 !important;     /* Subtle border */
+    background-color: #1e1e1e !important;
+    /* Match card color */
+    border: 1px solid #333 !important;
+    /* Subtle border */
     color: #fff !important;
 }
 
@@ -89,13 +91,15 @@ body {
 
 /* --- Compact Search Bar --- */
 .search-group {
-    width: 120px; /* Adjust this width if needed */
+    width: 120px;
+    /* Adjust this width if needed */
 }
 
 .navbar-search {
     background-color: #1e1e1e !important;
     border: 1px solid #333 !important;
-    border-right: none !important; /* Remove right border to merge with icon */
+    border-right: none !important;
+    /* Remove right border to merge with icon */
     color: #fff !important;
     box-shadow: none !important;
 }
@@ -109,7 +113,8 @@ body {
     padding: 6px 5px;
     background-color: #1e1e1e;
     border: 1px solid #333;
-    border-left: none; /* Remove left border to merge with input */
+    border-left: none;
+    /* Remove left border to merge with input */
     color: #888;
     transition: all 0.3s ease;
 }
@@ -121,10 +126,12 @@ body {
 
 /* --- Login Button --- */
 .btn-login {
-    background-color: #FFC107; /* Your branding Yellow */
+    background-color: #FFC107;
+    /* Your branding Yellow */
     color: #000;
     font-weight: bold;
-    border-radius: 20px; /* Pill shape */
+    border-radius: 20px;
+    /* Pill shape */
     padding: 6px 16px;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -132,7 +139,8 @@ body {
 
 .btn-login:hover {
     background-color: #e0a800;
-    transform: translateY(-2px); /* Slight lift effect */
+    transform: translateY(-2px);
+    /* Slight lift effect */
 }
 
 
@@ -143,8 +151,10 @@ body {
 
 /* Offcanvas background */
 .offcanvas.navbar-custom {
-    background-color: #000;        /* matches your navbar */
-    border-left: 1px solid #333;   /* subtle separation */
+    background-color: #000;
+    /* matches your navbar */
+    border-left: 1px solid #333;
+    /* subtle separation */
     padding-top: 15px;
 }
 
@@ -173,8 +183,10 @@ body {
 /* Hover behavior */
 .offcanvas-body .nav-link:hover {
     background-color: #1c1c1c;
-    color: #f7c32e; /* your yellow */
-    padding-left: 10px; /* subtle slide effect */
+    color: #f7c32e;
+    /* your yellow */
+    padding-left: 10px;
+    /* subtle slide effect */
     transition: 0.25s ease;
 }
 
@@ -228,82 +240,148 @@ body {
         opacity: 0;
         transform: scale(0.8) translateY(20px);
     }
+
     70% {
         opacity: 1;
-        transform: scale(1.008) translateY(0);
+        transform: scale(1.02) translateY(0);
+        /* Slight bounce */
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
     }
 }
 
-
-
 /* ================== HERO SECTION ================== */
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.45)), url('branding/30814.jpg');
+    /* Linear gradient makes the text pop against the image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('branding/30814.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+
+    /* Use min-height instead of height. 
+       This prevents content overlap if the screen is very short (like landscape mobile) */
+    min-height: 100vh;
+    width: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Optional: This creates a "Parallax" effect where image stays still while scrolling */
+    background-attachment: fixed;
 }
 
 .hero-text {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 110px;
-    font-weight: bold;
-    
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /* DEFAULT DESKTOP SIZE */
+    font-size: 5.5rem;
+    /* Using REM is better than PX for responsiveness */
+    font-weight: 800;
+    line-height: 1.1;
+    /* Tighter line spacing */
 
-    animation: popIn 2s ease-out forwards; 
-    opacity: 0; /* Important: Start hidden */
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+
+    animation: popIn 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    opacity: 0;
 }
 
 .hero-local {
     color: #4CAF50;
+    /* Green */
 }
 
 .hero-adventure {
-    color: #e1ad01;
+    color: #FFC107;
+    /* MountPinoy Yellow */
 }
 
 .hero-subheading {
-    color: white;
+    color: #f0f0f0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
+    /* Approx 20px */
+    font-weight: 400;
     text-align: center;
-    margin-top: 25px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    /* Prevents text from stretching too wide on huge monitors */
+    margin-left: auto;
+    margin-right: auto;
 
-    animation: popIn 2s ease-out forwards;
-    animation-delay: 1s; /* Starts 0.3 seconds AFTER the main heading */
-    opacity: 0; /* Important: Start hidden */
+    animation: popIn 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 
+/* BUTTON STYLING */
 .btn-climb {
-    background-color: #e1ad01;
-    color: white;
-    padding: 11px 50px;
-    text-align: center;
+    background-color: #FFC107;
+    /* MountPinoy Yellow */
+    color: #000;
+    /* Black text is easier to read on yellow */
+    font-weight: bold;
+    padding: 15px 50px;
     text-decoration: none;
     display: inline-block;
-    font-size: 24px;
+    font-size: 1.5rem;
     margin-top: 40px;
     border: none;
-    cursor: pointer;
-    border-radius: 8px;
+    border-radius: 50px;
+    /* Pill shape is more modern */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-climb:hover {
-    background-color: #f7c32e;
-    box-shadow: 0 3px 3px #f3c64b;
-    transform: scale(1.02);
+    background-color: #ffdb6e;
+    transform: translateY(-5px);
+    /* Moves up slightly */
+    box-shadow: 0 10px 20px rgba(255, 193, 7, 0.4);
+    /* Glowing shadow */
+    color: #000;
+}
+
+
+/* Tablets (iPad, etc.) */
+@media (max-width: 992px) {
+    .hero-text {
+        font-size: 4rem;
+        /* Smaller font */
+    }
+
+    .hero-image {
+        background-attachment: scroll;
+        /* Disable parallax on touch devices for performance */
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 2.5rem;
+        /* Much smaller font (~40px) */
+    }
+
+    .hero-subheading {
+        font-size: 1rem;
+        /* Smaller subheading */
+        padding: 0 15px;
+        /* Add padding so text doesn't hit edge */
+    }
+
+    .btn-climb {
+        padding: 12px 35px;
+        font-size: 1.2rem;
+        margin-top: 25px;
+    }
 }
 
 
@@ -578,9 +656,12 @@ body {
 .tour-card {
     background-color: #1c1c1c;
     border-radius: 30px;
-    overflow: hidden; /* Crucial for rounding the image corners */
-    height: 100%; /* Makes all cards in the row the same height */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow like the example */
+    overflow: hidden;
+    /* Crucial for rounding the image corners */
+    height: 100%;
+    /* Makes all cards in the row the same height */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow like the example */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -591,7 +672,8 @@ body {
 }
 
 .tour-card .card-body {
-    padding: 1rem 1.23rem 1.5rem 1.25rem; /* Slightly more vertical padding */
+    padding: 1rem 1.23rem 1.5rem 1.25rem;
+    /* Slightly more vertical padding */
 }
 
 .card-image-wrapper {
@@ -600,8 +682,10 @@ body {
 }
 
 .tour-card .card-img-top {
-    height: 300px; /* Define a consistent height for all tour images */
-    object-fit: cover; /* Ensures image covers the space without stretching */
+    height: 300px;
+    /* Define a consistent height for all tour images */
+    object-fit: cover;
+    /* Ensures image covers the space without stretching */
     width: 100%;
 }
 
@@ -619,7 +703,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0;
-    color: #4CAF50; /* Green icon color for the heart */
+    color: #4CAF50;
+    /* Green icon color for the heart */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -630,8 +715,10 @@ body {
 .location-tag {
     /* Custom light green badge style */
     display: inline-block;
-    background-color: #d8d8d8; /* Light green background */
-    color: #003930; /* Dark green text */
+    background-color: #d8d8d8;
+    /* Light green background */
+    color: #003930;
+    /* Dark green text */
     font-size: 0.8rem;
     padding: 3px 8px;
     border-radius: 4px;
@@ -644,7 +731,7 @@ body {
     /* Title styling, overriding default Bootstrap h5 */
     font-size: 1.35rem;
     font-weight: 700;
-    color: #4CAF50; 
+    color: #4CAF50;
     line-height: 1.4;
     margin-bottom: 10px;
 }
@@ -658,7 +745,8 @@ body {
 }
 
 .rating-stars i {
-    font-size: 0.85rem; /* Smaller size for the circles/stars */
+    font-size: 0.85rem;
+    /* Smaller size for the circles/stars */
     color: #FFC107;
 }
 
@@ -687,8 +775,10 @@ body {
 }
 
 .price-display .price-amount {
-    font-size: 1.3rem; /* Larger font size for the price */
-    color: #ffc107; /* Ensure the price is very dark/black */
+    font-size: 1.3rem;
+    /* Larger font size for the price */
+    color: #ffc107;
+    /* Ensure the price is very dark/black */
 }
 
 .price-display .price-unit {
@@ -698,60 +788,66 @@ body {
 
 .tour-card:hover .price-amount {
     /* Apply a soft, yellow-orange text shadow */
-    text-shadow: 0 0 8px #ffc107, /* Base glow */
-                 0 0 15px rgba(255, 193, 7, 0.5); /* Stronger secondary glow */
-    
+    text-shadow: 0 0 8px #ffc107,
+        /* Base glow */
+        0 0 15px rgba(255, 193, 7, 0.5);
+    /* Stronger secondary glow */
+
     /* Optional: Make the price slightly brighter on hover */
-    color: #f5dc92; 
+    color: #f5dc92;
 }
 
 
 /* ================== TESTIMONIALS SECTION ================== */
 .testimonials-section {
-    background-color: #1c1c1c; 
+    background-color: #1c1c1c;
 }
 
 /* Wrapper to control the width of the testimonial card inside the carousel */
 .testimonial-content-wrapper {
     display: flex;
     justify-content: center;
-    padding: 0 50px; /* Add horizontal padding to prevent card hitting edges on swipe */
+    padding: 0 50px;
+    /* Add horizontal padding to prevent card hitting edges on swipe */
 }
 
 .testimonial-carousel-card {
     /* Limit the width of the card so it doesn't span the entire container width */
-    max-width: 1000px; 
-    width: 100%; 
-    
-    background-color: #2c2c2c; 
+    max-width: 1000px;
+    width: 100%;
+
+    background-color: #2c2c2c;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     padding: 30px;
-    margin-bottom: 50px; /* Space for the indicators below */
+    margin-bottom: 50px;
+    /* Space for the indicators below */
 }
 
 .testimonial-img {
     width: 370px;
     height: 370px;
     object-fit: cover;
-    border-radius: 50%; 
-    border: 0.5px solid #e1ad01; /* Gold ring around the profile picture */
+    border-radius: 50%;
+    border: 0.5px solid #e1ad01;
+    /* Gold ring around the profile picture */
 }
 
 .quote-text {
     font-style: italic;
-    color: #f0f0f0; 
-    font-size: 20px; /* Slightly larger text for emphasis */
+    color: #f0f0f0;
+    font-size: 20px;
+    /* Slightly larger text for emphasis */
     line-height: 1.6;
 }
 
 .blockquote-footer {
-    color: #a9a9a9; 
+    color: #a9a9a9;
     font-size: 16px;
 }
 
 .star-gold {
-    color: #e1ad01; 
+    color: #e1ad01;
     font-size: 24px;
     letter-spacing: 3px;
 }
@@ -761,13 +857,15 @@ body {
 .carousel-control-next-icon {
     width: 40px;
     height: 40px;
-    background-color: #e1ad01; /* Gold background for the arrows */
+    background-color: #e1ad01;
+    /* Gold background for the arrows */
     border-radius: 50%;
 }
 
 /* Style the Carousel Indicators (Dots) */
 .carousel-indicators button {
-    background-color: #5f9465; /* Green dots */
+    background-color: #5f9465;
+    /* Green dots */
     height: 8px;
     width: 8px;
     border-radius: 50%;
@@ -775,7 +873,7 @@ body {
 }
 
 .carousel-indicators .active {
-    background-color: #e1ad01; 
+    background-color: #e1ad01;
 }
 
 
@@ -785,27 +883,27 @@ body {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    
+
     background-color: #2a2a2a;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 
-    margin: 0 auto 15px auto; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    margin: 0 auto 15px auto;
     margin-bottom: 30px;
     margin-top: 30px;
 }
 
 .service-icon {
-    color: white; 
+    color: white;
     font-size: 30px;
 }
 
 .service-text {
-    color: white; 
+    color: white;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -828,66 +926,71 @@ body {
 
 /* 1. The Main Modal Background */
 .custom-dark-modal {
-    background-color: #2c2c2c; /* Matches your website body */
-    border: 1px solid #444;    /* Subtle border to separate from background */
-    box-shadow: 0 0 20px rgba(0,0,0,0.8); /* Strong shadow for depth */
+    background-color: #2c2c2c;
+    /* Matches your website body */
+    border: 1px solid #444;
+    /* Subtle border to separate from background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    /* Strong shadow for depth */
     border-radius: 12px;
 }
 
 /* 2. Button Hover Effects */
 .custom-dark-modal .btn-outline-light:hover {
     background-color: #444;
-    color: #FFC107; /* Turns text yellow on hover */
+    color: #FFC107;
+    /* Turns text yellow on hover */
     border-color: #FFC107;
 }
 
 /* 3. The Green Button Hover */
 .custom-dark-modal .btn[style*="background-color: #4CAF50"]:hover {
-    background-color: #5f9465 !important; /* Slightly lighter green */
+    background-color: #5f9465 !important;
+    /* Slightly lighter green */
 }
 
 
 /* ================== ADMIN DASHBOARD ================== */
-body { 
-    background-color: #f4f6f9; 
+body {
+    background-color: #f4f6f9;
 }
 
 /* Custom Card Styles */
-.card-stat { 
-    border-radius: 10px; 
-    border: none; 
-    color: white; 
+.card-stat {
+    border-radius: 10px;
+    border: none;
+    color: white;
 }
 
 /* Gradients */
-.bg-primary-gradient { 
-    background: linear-gradient(45deg, #007bff, #0056b3); 
+.bg-primary-gradient {
+    background: linear-gradient(45deg, #007bff, #0056b3);
 }
 
-.bg-success-gradient { 
-    background: linear-gradient(45deg, #28a745, #1e7e34); 
+.bg-success-gradient {
+    background: linear-gradient(45deg, #28a745, #1e7e34);
 }
 
 /* Table Styling */
-.table-container { 
-    background: white; 
-    padding: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* Status Indicator Dots */
-.status-dot { 
-    height: 10px; 
-    width: 10px; 
-    background-color: #ccc; 
-    border-radius: 50%; 
-    display: inline-block; 
+.status-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
     margin-right: 5px;
 }
 
-.status-active { 
-    background-color: #28a745; 
+.status-active {
+    background-color: #28a745;
 }
 
 
