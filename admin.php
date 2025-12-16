@@ -34,9 +34,8 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
 
 <head>
     <title>MountPinoy Admin Dashboard</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="mountpinoy.css">
 </head>
 
@@ -53,45 +52,52 @@ $stmt_list = sqlsrv_query($conn, $sql_list);
 
         <div class="row mb-4">
             <div class="col-md-6 mb-3">
-                <div class="card card-stat bg-primary-gradient p-3">
+                <div class="card card-stat bg-primary-gradient p-3 text-white">
                     <h3><?php echo $total_tours; ?></h3>
                     <span>Total Tours Listed</span>
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-                <div class="card card-stat bg-success-gradient p-3">
+                <div class="card card-stat bg-success-gradient p-3 text-white">
                     <h3><?php echo $active_tours; ?></h3>
                     <span>Active / Visible Tours</span>
                 </div>
             </div>
         </div>
 
-        <div class="row mb-5">
-            <div class="col-md-6 d-grid">
+        <div class="row mb-4">
+            <div class="col-md-6 d-grid mb-3">
                 <a href="addtours.html" class="btn btn-primary btn-lg py-3 shadow-sm">
                     <strong>+ Edit/Create New Tour</strong> <br>
                     <small>Step 1: Basic Info, Price, & Image</small>
                 </a>
             </div>
-            <div class="col-md-6 d-grid">
+            <div class="col-md-6 d-grid mb-3">
                 <a href="add_details.php" class="btn btn-success btn-lg py-3 shadow-sm">
                     <strong>+ Add Tour Details</strong> <br>
                     <small>Step 2: Itinerary, Map, & Inclusions</small>
                 </a>
             </div>
-
         </div>
 
         <div class="row mb-5">
-            <div class="col-md-6 d-grid">
-                <a href="addevent.php" class="btn btn-warning btn-lg py-3 shadow-sm">
-                    <strong>Create a scheduled event</strong> <br>
-                    <small>add event</small>
+            <div class="col-md-6 d-grid mb-3">
+                <a href="addevent.php" class="btn btn-warning btn-lg py-3 shadow-sm text-dark">
+                    <strong><i class="bi bi-calendar-plus me-2"></i>Create Scheduled Event</strong> <br>
+                    <small>Manage Schedules & Slots</small>
+                </a>
+            </div>
+
+            <div class="col-md-6 d-grid mb-3">
+                <a href="admin_bookings.php" class="btn btn-info btn-lg py-3 shadow-sm text-white"
+                    style="background-color: #0dcaf0;">
+                    <strong><i class="bi bi-ticket-perforated me-2"></i>Monitor Bookings</strong> <br>
+                    <small>View Reservations & Joiners</small>
                 </a>
             </div>
         </div>
 
-        <div class="table-container">
+        <div class="table-container bg-white p-4 rounded shadow-sm">
             <h4 class="mb-3">Tour Inventory (Recent)</h4>
             <table class="table table-hover">
                 <thead class="table-light">

@@ -23,7 +23,9 @@ if ($conn === false) {
 $user_id = $_SESSION['user_id'];
 
 // 3. FETCH BOOKINGS
-// Join BOOKINGS_1 with TOURS_7 to get the tour details (Image, Name)
+// UPDATED SORTING:
+// - CASE WHEN... checks if the date is in the future (Group 0) or past (Group 1).
+// - Then it sorts by date to get the nearest ones first.
 $sql = "SELECT 
             b.BookingID,
             b.TravelDate,
@@ -37,7 +39,9 @@ $sql = "SELECT
         FROM BOOKINGS_1 b
         JOIN TOURS_7 t ON b.TourID = t.TOUR_ID
         WHERE b.UserID = ?
-        ORDER BY b.TravelDate DESC";
+        ORDER BY 
+            CASE WHEN b.TravelDate >= CAST(GETDATE() AS DATE) THEN 0 ELSE 1 END ASC, 
+            b.TravelDate ASC";
 
 $params = array($user_id);
 $stmt = sqlsrv_query($conn, $sql, $params);
@@ -70,9 +74,6 @@ if ($stmt) {
             color: #f0f0f0;
         }
 
-        /* ===============================
-   TICKET CARD
-================================ */
         .ticket-card {
             background: #1e1e1e;
             border: 1px solid #333;
@@ -80,10 +81,7 @@ if ($stmt) {
             overflow: hidden;
             transition: all 0.3s ease;
             position: relative;
-
-            /* FIXED HEIGHT (KEEP) */
             height: 300px;
-
             display: flex;
         }
 
@@ -100,9 +98,6 @@ if ($stmt) {
             margin: 0;
         }
 
-        /* ===============================
-   IMAGE COLUMN (HEIGHT LOCKED)
-================================ */
         .ticket-card .col-md-4 {
             height: 100%;
         }
@@ -116,9 +111,6 @@ if ($stmt) {
             border-right: 2px dashed #333;
         }
 
-        /* ===============================
-   STATUS BADGE
-================================ */
         .status-badge {
             position: absolute;
             top: 15px;
@@ -149,45 +141,30 @@ if ($stmt) {
             border: 1px solid #e74c3c;
         }
 
-        /* ===============================
-   TEXT COLUMN (AUTO HEIGHT)
-================================ */
         .ticket-card .col-md-8 {
             display: flex;
             flex-direction: column;
-            /* ❌ NO height: 100% here */
         }
 
         .ticket-card .card-body {
             padding: 1.2rem;
             display: flex;
             flex-direction: column;
-            /* ❌ NO height: 100% */
         }
 
-        /* ===============================
-   TITLE (SAFE CLAMP)
-================================ */
         .ticket-card .card-title {
             margin-bottom: 1rem;
             line-height: 1.3;
-
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        /* ===============================
-   INFO ROW
-================================ */
         .ticket-card .row.g-3 {
             margin-bottom: auto;
         }
 
-        /* ===============================
-   MOBILE FIX
-================================ */
         @media (max-width: 768px) {
             .ticket-card {
                 height: auto;
