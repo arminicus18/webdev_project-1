@@ -23,9 +23,7 @@ if ($conn === false) {
 $user_id = $_SESSION['user_id'];
 
 // 3. FETCH BOOKINGS
-// UPDATED SORTING:
-// - CASE WHEN... checks if the date is in the future (Group 0) or past (Group 1).
-// - Then it sorts by date to get the nearest ones first.
+
 $sql = "SELECT 
             b.BookingID,
             b.TravelDate,

@@ -15,7 +15,7 @@ if ($conn === false) {
 }
 
 // 2. FETCH 'OTHERS' AND 'BEACH' TOURS
-// This is the ONLY line that is different from your featured php
+
 $sql = "SELECT TOP (4) * FROM TOURS_7 WHERE CATEGORY IN ('Others', 'Beach') AND RATING >= 4.6 ORDER BY RATING DESC";
 $stmt = sqlsrv_query($conn, $sql);
 

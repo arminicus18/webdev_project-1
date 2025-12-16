@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'email_helper.php'; // <--- IMPORT THE HELPER
+require 'email_helper.php'; 
 
 // 1. CHECK LOGIN
 if (!isset($_SESSION['user_id'])) {
@@ -59,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // C. GET BOOKING ID (For the ticket)
-        // In SQL Server, we can get the last ID inserted in this scope
         $sql_id = "SELECT @@IDENTITY as last_id";
         $stmt_id = sqlsrv_query($conn, $sql_id);
         $row_id = sqlsrv_fetch_array($stmt_id, SQLSRV_FETCH_ASSOC);
@@ -72,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tourName = $row_tour['TOUR_NAME'];
 
         // E. GET USER EMAIL
-        // Assuming you have a USERS table with an 'Email' column
         $sql_user = "SELECT email FROM USERS_1 WHERE user_id = ?";
         $stmt_user = sqlsrv_query($conn, $sql_user, array($userId));
         $row_user = sqlsrv_fetch_array($stmt_user, SQLSRV_FETCH_ASSOC);

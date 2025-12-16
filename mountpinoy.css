@@ -927,9 +927,7 @@ body {
 /* 1. The Main Modal Background */
 .custom-dark-modal {
     background-color: #2c2c2c;
-    /* Matches your website body */
     border: 1px solid #444;
-    /* Subtle border to separate from background */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     /* Strong shadow for depth */
     border-radius: 12px;

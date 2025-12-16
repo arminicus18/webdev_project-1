@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(`Requesting Gallery. Name: [${tourName}], Location: [${rawLocation}]`);
 
     // 3. SEND SEPARATE PARAMETERS TO PHP
-    // Notice we use ?name=...&loc=... instead of ?search=...
+
     const apiUrl = `service_gallery.php?name=${encodeURIComponent(tourName)}&loc=${encodeURIComponent(rawLocation)}`;
 
     // 4. FETCH

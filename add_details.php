@@ -9,15 +9,12 @@ $connectionOptions = [
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 if ($conn === false) { die(print_r(sqlsrv_errors(), true)); }
 
-// ---------------------------------------------------------
-// LOGIC: HANDLE FORM SUBMISSION (The part that saves!)
-// ---------------------------------------------------------
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $tour_id = $_POST['TOUR_ID'];
 
-    // A. INSERT MAIN DETAILS
-    // Updated to match your specific column names (DESCRIPTION, GMAPS_LOC)
+
     $sql_details = "INSERT INTO DETAILS_1 (DESCRIPTION, GMAPS_LOC, TOUR_ID, MEETING_POINT, NOTES, YT_LINK) 
                     VALUES (?, ?, ?, ?, ?, ?)";
     $params_details = array( 
@@ -30,18 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
     $stmt1 = sqlsrv_query($conn, $sql_details, $params_details);
 
-    // B. INSERT INCLUSIONS
     if (!empty($_POST['INCLUSIONS_LIST'])) {
         $items = explode("\n", str_replace("\r", "", $_POST['INCLUSIONS_LIST']));
         
-        // FIXED SQL: We map placeholders to (ITEM_NAME, IS_INCLUDED, TOUR_ID)
-        // We set IS_INCLUDED to 1 (True) by default
+
         $sql_inc = "INSERT INTO INCLUSIONS_1 (ITEM_NAME, IS_INCLUDED, TOUR_ID) VALUES (?, 1, ?)";
         
         foreach ($items as $item) {
             if (!empty(trim($item))) {
-                // FIXED PARAMS: Matches the order (?, 1, ?) above
-                // 1. Item Name  2. Tour ID
+
                 $params_inc = array(trim($item), $tour_id);
                 
                 sqlsrv_query($conn, $sql_inc, $params_inc);
@@ -61,11 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $time = isset($parts[0]) ? trim($parts[0]) : "";
                 $activity = isset($parts[1]) ? trim($parts[1]) : $line;
                 
-                // FIXED PARAMS: Must match SQL order exactly
-                // 1. DAY_NUM (1)
-                // 2. TIME_MARKER ($time)
-                // 3. ACTIVITY_DESC ($activity)
-                // 4. TOUR_ID ($tour_id)
+
                 $params_itin = array(1, $time, $activity, $tour_id);
                 
                 sqlsrv_query($conn, $sql_itin, $params_itin);
@@ -81,9 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// ---------------------------------------------------------
-// LOGIC: FETCH EXISTING TOURS FOR DROPDOWN
-// ---------------------------------------------------------
+
 $sql_get_tours = "SELECT TOUR_ID, TOUR_NAME FROM TOURS_7 ORDER BY TOUR_NAME ASC";
 $result_tours = sqlsrv_query($conn, $sql_get_tours);
 ?>
@@ -111,7 +99,7 @@ $result_tours = sqlsrv_query($conn, $sql_get_tours);
         <select name="TOUR_ID" required>
             <option value="" disabled selected>-- Choose a Mountain --</option>
             <?php 
-                // Loop through database results to create <option> tags
+
                 while($row = sqlsrv_fetch_array($result_tours, SQLSRV_FETCH_ASSOC)) {
                     echo "<option value='" . $row['TOUR_ID'] . "'>" . $row['TOUR_NAME'] . " (ID: " . $row['TOUR_ID'] . ")</option>";
                 }

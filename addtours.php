@@ -16,7 +16,7 @@ if ($conn === false) {
 // 2. CHECK IF FORM WAS SUBMITTED
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    // We use "action_type" to decide if we are Adding, Updating, or Deleting
+
     $action = $_POST['action_type'];
 
     // ---------------------------------------------------
@@ -95,8 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     elseif ($action == 'delete') {
         $tour_id = $_POST['TOUR_ID_DELETE'];
 
-        // STEP 1: Delete the "Child" data first to avoid Foreign Key Errors
-        // We use separate queries to clear out the connected tables
+
         $delete_details = "DELETE FROM DETAILS_1 WHERE TOUR_ID = ?";
         sqlsrv_query($conn, $delete_details, array($tour_id));
 
@@ -106,7 +105,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $delete_itinerary = "DELETE FROM ITINERARY_1 WHERE TOUR_ID = ?";
         sqlsrv_query($conn, $delete_itinerary, array($tour_id));
 
-        // STEP 2: Now it is safe to delete the "Parent" Tour
         $sql = "DELETE FROM TOURS_7 WHERE TOUR_ID = ?";
         $params = array($tour_id);
 

@@ -17,7 +17,7 @@ $sql_tours = "SELECT TOUR_ID, TOUR_NAME FROM TOURS_7 ORDER BY TOUR_NAME ASC";
 $stmt_tours = sqlsrv_query($conn, $sql_tours);
 
 // 3. FETCH EXISTING EVENTS FOR "REMOVE" DROPDOWN [NEW]
-// We join with TOURS_7 to show the name, and format the date for readability
+
 $sql_events = "SELECT 
                 e.EventID, 
                 t.TOUR_NAME, 
