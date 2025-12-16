@@ -159,6 +159,16 @@ if (!isset($_SESSION['user_name'])) {
                         <li class="nav-item"><a class="nav-link navbar-text" href="tips.php"><i
                                     class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips</a></li>
                     </ul>
+                    <div class="mb-3">
+                        <form class="d-flex input-group" role="search" onsubmit="handleSearch(event)">
+                            <input class="form-control navbar-search" type="search" name="q"
+                                placeholder="Search mountains..." aria-label="Search"
+                                style="background-color: #222; border: 1px solid #555; color: white;">
+                            <button class="btn btn-warning" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
 
                     <div class="mt-4">
                         <a class="text-danger text-decoration-none" href="logout.php">
@@ -367,15 +377,6 @@ if (!isset($_SESSION['user_name'])) {
                             class="fab fa-instagram fa-lg"></i></a>
                     <a href="https://www.youtube.com/@arminderosas9461" class="text-white me-3"><i
                             class="fab fa-youtube fa-lg"></i></a>
-
-                    <p class="text-secondary mt-3 small">Subscribe for early bird specials.</p>
-                    <form>
-                        <div class="input-group">
-                            <input type="email" class="form-control form-control-sm" placeholder="Your Email"
-                                aria-label="Email for newsletter">
-                            <button class="btn btn-warning btn-sm" type="submit">Go</button>
-                        </div>
-                    </form>
                 </div>
             </div>
 

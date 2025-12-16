@@ -256,6 +256,17 @@ if ($conn !== false) {
                                     class="fa-solid fa-circle-info fa-lg nav-icon me-2"></i> Tips</a></li>
                     </ul>
 
+                    <div class="mb-3">
+                        <form class="d-flex input-group" role="search" onsubmit="handleSearch(event)">
+                            <input class="form-control navbar-search" type="search" name="q"
+                                placeholder="Search mountains..." aria-label="Search"
+                                style="background-color: #222; border: 1px solid #555; color: white;">
+                            <button class="btn btn-warning" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
                     <div class="mt-4">
                         <a class="text-danger text-decoration-none" href="logout.php">
                             <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
@@ -345,6 +356,66 @@ if ($conn !== false) {
         <?php endif; ?>
 
     </main>
+
+    <!-- footer section -->
+    <footer class="footer mt-auto py-5 text-white" style="background-color: #1a1a1a;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">
+                        <span class="logo-mount">Mount</span><span class="logo-pinoy">Pinoy</span>
+                    </h5>
+                    <p class="text-secondary small">
+                        Your trusted guide to exploring the most majestic peaks and hidden trails across the
+                        Philippines. Safety, sustainability, and adventure.
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="tours.html" class="text-white text-decoration-none small">All
+                                Tours & Expeditions</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none small">About
+                                Us</a></li>
+                        <li class="mb-2"><a href="faqs.html" class="text-white text-decoration-none small">FAQ &
+                                Preparation</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none small">Adventure
+                                Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Get in Touch</h5>
+                    <ul class="list-unstyled text-secondary small">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@mountpinoy.ph</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-warning"></i> +63 923 417 5772</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Carmona, Cavite,
+                            Philippines</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-success mb-3">Connect</h5>
+                    <a href="https://www.facebook.com/armin.derosas.18" class="text-white me-3"><i
+                            class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="https://www.instagram.com/arminicus18/" class="text-white me-3"><i
+                            class="fab fa-instagram fa-lg"></i></a>
+                    <a href="https://www.youtube.com/@arminderosas9461" class="text-white me-3"><i
+                            class="fab fa-youtube fa-lg"></i></a>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+            <div class="row">
+                <div class="col-12 text-center small text-secondary pt-3">
+                    &copy; 2025 MountPinoy Expeditions. All rights reserved. | <a href="#"
+                        class="text-warning text-decoration-none">DE ROSAS ARMIN CPE41</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
