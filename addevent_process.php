@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-// 1. CHECK LOGIN
-if (!isset($_SESSION['user_id'])) {
-    die("Access Denied");
-}
+
 
 // 2. CONNECT
 $serverName = "ARMINICUS-18\SQLEXPRESS";
