@@ -395,7 +395,7 @@ if ($stmt) {
 
         <?php else: ?>
             <div class="text-center py-5 border border-secondary rounded-4 bg-dark bg-opacity-50">
-                <i class="fa-solid fa-plane-departure fa-4x text-secondary mb-4"></i>
+                <i class="bi bi-backpack4 fa-4x text-secondary mb-4"></i>
                 <h3 class="text-white">No bookings yet?</h3>
                 <p class="text-secondary">Time to start your next adventure!</p>
                 <a href="tours.php" class="btn btn-warning mt-2 fw-bold px-4 py-2">Find a Tour</a>

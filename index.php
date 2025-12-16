@@ -169,11 +169,6 @@ if (!isset($_SESSION['user_name'])) {
         </div>
     </nav>
 
-
-
-
-
-
     <main>
         <!-- hero part -->
         <section class="hero">
@@ -354,7 +349,6 @@ if (!isset($_SESSION['user_name'])) {
             </div>
         </section>
 
-
         <!-- Mountains and More -->
         <section class="featured-tours-section py-5">
             <div class="container">
@@ -371,9 +365,6 @@ if (!isset($_SESSION['user_name'])) {
                 </div>
             </div>
         </section>
-
-        <!-- Mountains and More -->
-
 
         <!-- tesimonials -->
         <section class="testimonials-section py-5 bg-darker">
@@ -611,7 +602,6 @@ if (!isset($_SESSION['user_name'])) {
             </div>
         </section>
 
-
         <!-- last call to action section -->
         <section class="final-cta py-5 text-white text-center" style="background-color: #2f5d34;">
             <div class="container py-4">
@@ -631,16 +621,9 @@ if (!isset($_SESSION['user_name'])) {
                         Browse All Treks
                     </a>
 
-                    <a href="contact.html" class="btn btn-outline-light btn-lg px-4">
-                        Talk to a Specialist
-                    </a>
                 </div>
             </div>
         </section>
-
-
-
-
 
         <!-- modal for saving the tour -->
         <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
@@ -724,15 +707,6 @@ if (!isset($_SESSION['user_name'])) {
                                 class="fab fa-instagram fa-lg"></i></a>
                         <a href="https://www.youtube.com/@arminderosas9461" class="text-white me-3"><i
                                 class="fab fa-youtube fa-lg"></i></a>
-
-                        <p class="text-secondary mt-3 small">Subscribe for early bird specials.</p>
-                        <form>
-                            <div class="input-group">
-                                <input type="email" class="form-control form-control-sm" placeholder="Your Email"
-                                    aria-label="Email for newsletter">
-                                <button class="btn btn-warning btn-sm" type="submit">Go</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
 
@@ -747,24 +721,7 @@ if (!isset($_SESSION['user_name'])) {
         </footer>
 
 
-
-
-
-
-
-
-
-
     </main>
-
-
-
-
-
-
-
-
-
 
 
     <?php include 'wishlist_float.php'; ?>
